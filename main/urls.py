@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from main.views import IndexView
+from main.views import PreviewView
 
 urlpatterns = [
-    url(r'^$', IndexView.as_view()),
+    url(r'^$', IndexView.as_view(), name='main-index'),
+    url(r'^preview$', PreviewView.as_view(), name='main-preview'),
 ]
 
