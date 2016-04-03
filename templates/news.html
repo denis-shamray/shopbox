@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -9,10 +10,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>Free Home Shoppe Website Template | News :: w3layouts</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="web/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<script type="text/javascript" src="web/js/jquery-1.7.2.min.js"></script> 
-<script type="text/javascript" src="web/js/move-top.js"></script>
-<script type="text/javascript" src="web/js/easing.js"></script>
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<script type="text/javascript" src="{% static 'js/jquery-1.7.2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
 </head>
 <body>
   <div class="wrap">
@@ -34,7 +35,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="web/images/logo.png" alt="" /></a>
+				<a href="index.html"><img src="{% static 'images/logo.png' %}" alt="" /></a>
 			</div>
 			  <div class="cart">
 			  	   <p>Welcome to our Online Store! <span>Cart:</span><div id="dd" class="wrapper-dropdown-2"> 0 item(s) - $0.00
@@ -78,7 +79,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			    	<li><a href="index.html">Home</a></li>
 			    	<li><a href="about.html">About</a></li>
 			    	<li><a href="delivery.html">Delivery</a></li>
-			    	<li  class="active"><a href="news.html">News</a></li>
+                    <li  class="active"><a href="{% url 'main-news' %}">News</a></li>
 			    	<li><a href="contact.html">Contact</a></li>
 			    	<div class="clear"></div>
      			</ul>
@@ -95,7 +96,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="content">
     	<div class="image group">
 				<div class="grid images_3_of_1">
-					<img src="web/images/newsimg1.jpg" alt="" />
+					<img src="{% static 'images/newsimg1.jpg' %}" alt="" />
 				</div>
 				<div class="grid news_desc">
 					<h3>Lorem Ipsum is simply dummy text </h3>
@@ -106,7 +107,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		   </div>	
 		   <div class="image group">
 				<div class="grid images_3_of_1">
-					<img src="web/images/newsimg2.jpg" alt="" />
+					<img src="{% static 'images/newsimg2.jpg' %}" alt="" />
 				</div>
 				<div class="grid news_desc">
 					<h3>Lorem Ipsum is simply dummy text </h3>
@@ -117,7 +118,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		   </div>
 		   <div class="image group">
 				<div class="grid images_3_of_1">
-					<img src="web/images/newsimg3.jpg" alt="" />
+					<img src="{% static 'images/newsimg3.jpg' %}" alt="" />
 				</div>
 				<div class="grid news_desc">
 					<h3>Lorem Ipsum is simply dummy text </h3>
@@ -180,11 +181,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="social-icons">
 							<h4>Follow Us</h4>
 					   		  <ul>
-							      <li><a href="#" target="_blank"><img src="web/images/facebook.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"><img src="web/images/twitter.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"><img src="web/images/skype.png" alt="" /> </a></li>
-							      <li><a href="#" target="_blank"> <img src="web/images/dribbble.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"> <img src="web/images/linkedin.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="{% static 'images/facebook.png' %}" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="{% static 'images/twitter.png' %}" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="{% static 'images/skype.png' %}" alt="" /> </a></li>
+							      <li><a href="#" target="_blank"><img src="{% static 'images/dribbble.png' %}" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="{% static 'images/linkedin.png' %}" alt="" /></a></li>
 							      <div class="clear"></div>
 						     </ul>
    	 					</div>

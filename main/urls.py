@@ -17,9 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from main.views import IndexView
 from main.views import PreviewView
+from main.views import NewsView
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='main-index'),
     url(r'^preview$', PreviewView.as_view(), name='main-preview'),
+    url(r'^news$', NewsView.as_view(), name='main-news'),
 ]
 
