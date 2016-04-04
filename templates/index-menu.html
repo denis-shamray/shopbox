@@ -1,0 +1,10 @@
+<div class="menu">
+    <ul>
+        <li{% if url_name == "main-index" %} class="active"{% endif %}><a href="{% url 'main-index' %}">Home</a></li>
+        <li><a href="{% url 'main-about' %}">About</a></li>
+        <li><a href="{% url 'main-delivery' %}">Delivery</a></li>
+        <li><a href="{% url 'main-news' %}">News</a></li>
+        <li><a href="{% url 'main-contact' %}">Contact</a></li>
+        <div class="clear"></div>
+    </ul>
+</div>

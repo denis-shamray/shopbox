@@ -80,16 +80,7 @@
             <div class="clear"></div>
         </div>
         <div class="header_bottom">
-            <div class="menu">
-                <ul>
-                    <li class="active"><a href="{% url 'main-index' %}">Home</a></li>
-                    <li><a href="{% url 'main-about' %}">About</a></li>
-                    <li><a href="{% url 'main-delivery' %}">Delivery</a></li>
-                    <li><a href="{% url 'main-news' %}">News</a></li>
-                    <li><a href="{% url 'main-contact' %}">Contact</a></li>
-                    <div class="clear"></div>
-                </ul>
-            </div>
+{% include "index-menu.html" %}
             <div class="search_box">
                 <form>
                     <input type="text" value="Search" onfocus="this.value = '';"
