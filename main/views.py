@@ -11,3 +11,15 @@ class PreviewView(TemplateView):
 
 class NewsView(TemplateView):
     template_name = "news.html"
+
+
+class AboutView(TemplateView):
+    template_name = "about.html"
+
+
+class ContactView(TemplateView):
+    template_name = "contact.html"
+
+
+class DeliveryView(TemplateView):
+    template_name = "Delivery.html"
