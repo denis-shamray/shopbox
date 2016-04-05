@@ -24,7 +24,7 @@ from main.views import DeliveryView
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='main-index'),
-    url(r'^preview$', PreviewView.as_view(), name='main-preview'),
+    url(r'^preview/(?P<pk>[0-9]+)$', PreviewView.as_view(), name='main-preview'),
     url(r'^news$', NewsView.as_view(), name='main-news'),
     url(r'^about$', AboutView.as_view(), name='main-about'),
     url(r'^contact$', ContactView.as_view(), name='main-contact'),
