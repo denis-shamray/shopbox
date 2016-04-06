@@ -99,13 +99,8 @@
     transition:all 0.2s linear;
 }
 .button:hover {
-	text-shadow: 0px 1px 1px #000;
-	background:#CD1F25;
-	 -webkit-transform:scale(1.05);
-    -moz-transform:scale(1.05);
-    -ms-transform:scale(1.05);
-    -o-transform:scale(1.05);
-    transform:scale(1.05);
+        background:#383838;
+	color: #FFF;
 }
 .button-icon-download{
 	margin-left:15px;
@@ -116,10 +111,10 @@
 	right: 20px; 
 	background: #ac0000; 
 	color: white;
-    padding: 3px 8px; 
-    font-size: 10px; 
-    text-transform: uppercase; 
-    z-index: 1000; 
+        padding: 3px 8px;
+        font-size: 10px;
+        text-transform: uppercase;
+        z-index: 1000;
  }
  @media only screen and (max-width: 1024px) {
 	.slide h1 {

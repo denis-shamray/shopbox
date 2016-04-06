@@ -385,7 +385,6 @@ body {
 	display: inline-block;
 }
 .add-cart h4 a{
-	font-size:0.9em;
 	display: block;
 	padding:10px 15px;
 	font-family: 'ambleregular';
@@ -508,8 +507,8 @@ body {
 	display: none;
 	text-decoration: none;
 	position: fixed;
-	bottom: 10px;
-	right: 10px;
+	bottom: 60px;
+	right: 60px;
 	overflow: hidden;
 	width: 48px;
 	height: 48px;
@@ -1598,4 +1597,9 @@ body {
 	.contact-form input[type="text"],.contact-form textarea{
 		width:93%;
 	}
+}
+
+.razmer{
+    width: 55px;
+    height: 41px;
 }
