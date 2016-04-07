@@ -15,9 +15,18 @@ class Good(models.Model):
     def get_options(self):
         return json.loads(self.options_text)
 
+    def get_pictures(self):
+        return self.pictures.all()
+
+    def __unicode__(self):
+        return self.title
+
 
 class Picture(models.Model):
     good = models.ForeignKey(Good, related_name="pictures")
     url = models.URLField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.url

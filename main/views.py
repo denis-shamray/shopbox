@@ -1,5 +1,7 @@
 from django.views.generic import TemplateView
 from django.core.urlresolvers import resolve
+from main.models import Good
+from main.models import Picture
 
 GOODS=[{"pk": 1,
         "pictures": ["images/feature-pic1.jpg",
@@ -177,7 +179,7 @@ class BaseView(TemplateView):
         context = super(BaseView, self).get_context_data(**kwargs)
         url_name = resolve(self.request.path).url_name
         context['url_name'] = url_name
-        context['goods'] = GOODS
+        context['goods'] = Good.objects.all()
         return context
 
 
@@ -191,8 +193,7 @@ class PreviewView(BaseView):
     def get_context_data(self, pk, **kwargs):
         pk = int(pk)
         context = super(PreviewView, self).get_context_data(**kwargs)
-        filtered = [good for good in GOODS if good['pk'] == pk]
-        context['good'] = filtered[0]
+        context['good'] = Good.objects.get(pk=pk)
         return context
 
 

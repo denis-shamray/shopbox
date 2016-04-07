@@ -45,21 +45,10 @@
                                 <div id="products_example">
                                     <div id="products">
                                         <div class="slides_container">
-                                            <a href="#" target="_blank"><img src="{% static good.pictures.0 %}" alt=" " /></a>
-                                            <a href="#" target="_blank"><img src="{% static good.pictures.1 %}" alt=" " /></a>
-                                            <a href="#" target="_blank"><img src="{% static good.pictures.2 %}" alt=" " /></a>
-                                            <a href="#" target="_blank"><img src="{% static good.pictures.3 %}" alt=" " /></a>
-                                            <a href="#" target="_blank"><img src="{% static good.pictures.4 %}" alt=" " /></a>
-                                            <a href="#" target="_blank"><img src="{% static good.pictures.5 %}" alt=" " /></a>
-
+                                            {% for picture in good.pictures.all %}<a href="#" target="_blank"><img src="{% static picture.url %}" alt=" " /></a> {% endfor %}
                                         </div>
                                         <ul class="pagination">
-                                            <li><a href="#"><img class="razmer" src="{% static good.pictures.0 %}" alt=" " /></a></li>
-                                            <li><a href="#"><img class="razmer" src="{% static good.pictures.1 %}" alt=" " /></a></li>
-                                            <li><a href="#"><img class="razmer" src="{% static good.pictures.2 %}" alt=" " /></a></li>
-                                            <li><a href="#"><img class="razmer" src="{% static good.pictures.3 %}" alt=" " /></a></li>
-                                            <li><a href="#"><img class="razmer" src="{% static good.pictures.4 %}" alt=" " /></a></li>
-                                            <li><a href="#"><img class="razmer" src="{% static good.pictures.5 %}" alt=" " /></a></li>
+                                            {% for picture in good.pictures.all %}<li><a href="#"><img class="razmer" src="{% static picture.url %}" alt=" " /></a></li> {% endfor %}
                                         </ul>
                                     </div>
                                 </div>
@@ -71,11 +60,11 @@
                             <div class="price">
                                 <p>Price: <span>${{good.price}}</span></p>
                             </div>
-                            {% if good.options %}
+                            {% if good.get_options %}
                             <div class="available">
                                 <p>Available Options :</p>
                                 <ul>
-                                    {% for name, option in good.options.items %}
+                                    {% for name, option in good.get_options.items %}
                                     <li>
                                         {{name}}:
                                         <select>
