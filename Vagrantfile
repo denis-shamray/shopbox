@@ -13,6 +13,7 @@ Vagrant.configure("2") do |config|
     sudo pip install -r /vagrant/requirements.txt
     cd /vagrant
     python manage.py migrate
+    python manage.py loaddata main/fixtures/goods.json
     sudo -su vagrant screen -dmS django bash -c 'python manage.py runserver 0.0.0.0:8000' && echo "Django server has been started"
   SHELL
 end
