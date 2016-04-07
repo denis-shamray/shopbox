@@ -146,7 +146,7 @@
         "updated_at": "2016-04-06 14:00:00"
     }
 },
-
+{
     "model": "main.good",
     "pk": 3,
     "fields": {
