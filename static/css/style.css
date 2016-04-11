@@ -335,8 +335,7 @@ body {
 }
 
 .grid_1_of_4:hover{
-        -webkit-transform: scale(1.02);
-        transform: scale(1.02);
+       box-shadow: 0 0 10px rgba(220,50,50,1);
 }
 
 .grid_1_of_4:nth-child(4n-3) {
