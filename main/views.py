@@ -211,3 +211,6 @@ class ContactView(BaseView):
 
 class DeliveryView(BaseView):
     template_name = "delivery.html"
+
+class LoginView(BaseView):
+    template_name = "login.html"

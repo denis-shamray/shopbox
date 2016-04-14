@@ -17,17 +17,17 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from main.views import IndexView
 from main.views import PreviewView
-from main.views import NewsView
 from main.views import AboutView
 from main.views import ContactView
 from main.views import DeliveryView
+from main.views import LoginView
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='main-index'),
     url(r'^preview/(?P<pk>[0-9]+)$', PreviewView.as_view(), name='main-preview'),
-    url(r'^news$', NewsView.as_view(), name='main-news'),
     url(r'^about$', AboutView.as_view(), name='main-about'),
     url(r'^contact$', ContactView.as_view(), name='main-contact'),
     url(r'^delivery$', DeliveryView.as_view(), name='main-delivery'),
+    url(r'^login$', LoginView.as_view(), name='main-login'),
 ]
 
