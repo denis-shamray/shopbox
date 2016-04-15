@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
+from django.core.urlresolvers import reverse
 from django.db import models
+from django.utils.html import format_html
 import json
 
 
@@ -21,11 +23,15 @@ class Good(models.Model):
     def __unicode__(self):
         return self.title
 
+    class Meta:
+        ordering = ['pk']
+
 
 class PictureImage(models.Model):
     bytes = models.TextField()
     filename = models.CharField(max_length=255)
     mimetype = models.CharField(max_length=50)
+
 
 class Picture(models.Model):
     good = models.ForeignKey(Good, related_name="pictures")
@@ -34,5 +40,13 @@ class Picture(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    @property
+    def preview(self):
+        url = reverse('main-picture', kwargs={'pk':self.pk})
+        return format_html('<a href="{}" target="_blank"><img src="{}" width="160px"></a>', url, url)
+
     def __unicode__(self):
         return self.url
+
+    class Meta:
+        ordering = ['pk']
