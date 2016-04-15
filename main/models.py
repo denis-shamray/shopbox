@@ -22,12 +22,15 @@ class Good(models.Model):
         return self.title
 
 
-class Picture(models.Model):
-    good = models.ForeignKey(Good, related_name="pictures")
-    url = models.URLField(max_length=255)
+class PictureImage(models.Model):
     bytes = models.TextField()
     filename = models.CharField(max_length=255)
     mimetype = models.CharField(max_length=50)
+
+class Picture(models.Model):
+    good = models.ForeignKey(Good, related_name="pictures")
+    url = models.URLField(max_length=255)
+    image = models.ImageField(upload_to='main.PictureImage/bytes/filename/mimetype', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

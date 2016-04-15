@@ -20,6 +20,6 @@ import main.urls
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('main.urls')),
-    url(r'^files/', include('db_file_storage.urls')),
+#    url(r'^files/', include('db_file_storage.urls')),  #DISABLED because filenames are not needed here
 ]
 
