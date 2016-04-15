@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
   end
   config.vm.provision "shell", run: "always", inline: <<-SHELL
     sudo apt-get update
-    sudo apt-get install htop screen mc git python-setuptools -y
+    sudo apt-get install htop screen mc git python-setuptools libjpeg-dev zlib1g-dev python-dev -y
     sudo easy_install pip
     sudo pip install -r /vagrant/requirements.txt
     cd /vagrant
