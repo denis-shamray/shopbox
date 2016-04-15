@@ -10,8 +10,10 @@ class GoodAdmin(admin.ModelAdmin):
    )
 admin.site.register(Good, GoodAdmin)
 
+
 class PictureAdmin(admin.ModelAdmin):
-   pass
+    list_display = ('pk', 'preview', 'created_at', 'updated_at')
+
 
 admin.site.register(Picture, PictureAdmin)
 # Register your models here.
