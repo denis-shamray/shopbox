@@ -22,6 +22,7 @@ from main.views import ContactView
 from main.views import DeliveryView
 from main.views import LoginView
 from main.views import PictureView
+from main.views import CartAddRedirectView
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='main-index'),
@@ -31,4 +32,5 @@ urlpatterns = [
     url(r'^delivery$', DeliveryView.as_view(), name='main-delivery'),
     url(r'^login$', LoginView.as_view(), name='main-login'),
     url(r'^picture/(?P<pk>[0-9]+)$', PictureView.as_view(), name='main-picture'),
+    url(r'^cart/add/(?P<pk>[0-9]+)/(?P<url>.+)$', CartAddRedirectView.as_view(), name='main-cart-add'),
 ]

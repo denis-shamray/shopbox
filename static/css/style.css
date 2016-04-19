@@ -29,7 +29,7 @@ nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*end reset*/
 @font-face {
-    font-family: 'ambleregular';
+    font-family: Arial, Helvetica, sans-serif;
     src:url(../font/Amble-Regular-webfont.ttf) format('truetype');
 }
 body {
@@ -41,9 +41,10 @@ body {
 	margin: 0 auto;
 }
 .header {
-	background: #FFF;
+	*background: #FFF;
 }
 .headertop_desc{
+    background: white;
 	padding:20px 0;
 	border-bottom:1px solid #EEE;
 }
@@ -78,13 +79,14 @@ body {
 	font-size:0.823em;
 	color:#9C9C9C;
 	padding:0 10px;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 }
 .account_desc li a:hover{
 	color:#E4292F;
 }
 .header_top {
 	padding: 20px 0;
+	background: white;
 }
 .logo {
 	float: left;
@@ -181,8 +183,8 @@ body {
 	float:left;
 }
 .menu li a {
-	font-family: 'ambleregular';
-	font-size:0.823em;
+	font-family: Arial, Helvetica, sans-serif;
+	*font-size:0.823em;
 	text-transform:uppercase;
 	color: #fff;
 	display:block;
@@ -243,6 +245,7 @@ body {
 	width:25%;
 }
 .categories{
+    background: white;
 	border:1px solid #EEE;
 }
 .categories h3{
@@ -251,14 +254,14 @@ body {
 	padding:10px;
 	background:#B81D22;
 	text-transform:uppercase;
-	font-family: 'ambleregular';	
+	font-family: Arial, Helvetica, sans-serif;
 }
 .categories li a{
 	display:block;
 	font-size:0.8em;
 	padding:8px 15px;
     color: #9C9C9C;
-    font-family: 'ambleregular';
+    font-family: Arial, Helvetica, sans-serif;
     margin:0 20px;
     background:url(../images/drop_arrow.png) no-repeat 0;
     border-bottom: 1px solid #EEE;
@@ -285,12 +288,13 @@ body {
 	margin-bottom: 0.5em;
 	font-size: 1.5em;
 	line-height: 1.2;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	margin-top: 0px;
 	text-transform: uppercase;
 }
 .content_top{
+    background: white;
 	padding: 15px 20px;
 	border: 1px solid #EBE8E8;
 	border-radius: 3px;
@@ -305,7 +309,7 @@ body {
 	float: left;
 }
 .heading h3 {
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	font-size:22px;
 	color:#383838;
 	text-transform: uppercase;
@@ -326,6 +330,7 @@ body {
 }
 /**** Grid 1_0f_4 ****/
 .grid_1_of_4 {
+    background: white;
 	display: block;
 	float: left;
 	margin: 1% 0 1% 1.6%;
@@ -354,7 +359,7 @@ body {
 }
 .images_1_of_4  h2 {
 	color:#6A82A4;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	font-size:1.1em;
 	font-weight: normal;
 }
@@ -365,7 +370,7 @@ body {
 }
 .images_1_of_4  p span.price {
 	font-size: 18px;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	color:#CC3636;
 }
 .price-details{
@@ -378,7 +383,7 @@ body {
 }
 .price-details p span.rupees{
 	font-size:1.6em;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	color:#383838;
 }
 .add-cart{
@@ -388,7 +393,7 @@ body {
 .add-cart h4 a{
 	display: block;
 	padding:10px 15px;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	background:#CD1F25;
 	color: #FFF;
 	text-decoration: none;
@@ -442,7 +447,7 @@ body {
 	margin-bottom: .5em;
 	font-size: 1.2em;
 	line-height: 1.2;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	margin-top: 0px;
 	letter-spacing: -1px;
@@ -455,15 +460,15 @@ body {
 	padding-left:20px;
 }
 .span_1_of_4  li a {
-	font-size: 0.8125em;
+	*font-size: 0.8125em;
 	padding: 0.4em 0;
 	color:#2A5C86;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	display: block;
 }
 .span_1_of_4  li span{
 	font-size:1em;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	color:#2A5C86;
 	cursor:pointer;
 	margin:10px 0;
@@ -496,7 +501,7 @@ body {
 }
 .copy_right p a {
 	color:#DD0F0E;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	text-decoration: underline;
 }
 .copy_right p a:hover {
@@ -544,7 +549,7 @@ body {
 	font-size: 0.9em;
 	padding: 0 1.3%;
 	color: #333;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 }
 .back-links p a:hover, .back-links p a:active {
 	color:#B81D22;
@@ -606,7 +611,7 @@ body {
 	max-width: 100%;
 }
 .span_3_of_2  h2 {
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1.1em;
 	color:#CD1F25;
 	font-weight: normal;
@@ -628,7 +633,7 @@ body {
 }
 .price p span {
 	font-size:3em;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	color:#CD1F25;;
 }
 .available {
@@ -686,7 +691,7 @@ body {
 .wish-list li a{
 	color: #383838;
 	font-size:1em;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	padding-left:22px;
 	text-decoration: underline;
 }
@@ -751,7 +756,7 @@ body {
 .product-tags .button a {
 	font-size:1em;
 	padding:10px 15px;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	background:#CD1F25;
 	color: #FFF;
 	text-decoration: none;
@@ -775,7 +780,7 @@ body {
 .review h4,.review h4 a{
  font-size:1.2em;
  color: #333;
- font-family: 'ambleregular';
+ font-family: Arial, Helvetica, sans-serif;
 }
 .review h4 a{
 	text-decoration:underline;
@@ -789,7 +794,7 @@ body {
 }
 .review li{
 	display:block;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	padding:8px 0;
 	color: #666;
 	font-size:1em;
@@ -807,7 +812,7 @@ body {
 .your-review h3{
 	font-size:1.2em;
     color: #333;
-    font-family: 'ambleregular';
+    font-family: Arial, Helvetica, sans-serif;
 }
 .your-review div{
 	padding:5px 0;
@@ -842,7 +847,7 @@ body {
 .your-review input[type="submit"]{
     font-size:1em;
 	padding:10px 15px;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	background:#CD1F25;
 	color: #FFF;
 	text-decoration: none;
@@ -863,7 +868,7 @@ body {
 	padding:8px 0 8px 20px;
 	color: #666;
 	display: block;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	background: url(../images/drop_arrow.png) no-repeat 0;
 	border-bottom:1px solid #F0F0F0;
 }
@@ -997,7 +1002,7 @@ body {
 	margin-bottom: 0.5em;
 	font-size: 1.5em;
 	line-height: 1.2;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	margin-top: 0px;
 	text-transform: uppercase;
@@ -1073,7 +1078,7 @@ body {
 	color:#383838;
 	font-size: 1em;
 	margin:5px 0;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 }
 .images_1_of_3  p  {
@@ -1089,7 +1094,7 @@ body {
 #posts .tab .post-title{
 	color:#B81D22;
 	font-size:1em;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	overflow:hidden;
 	margin:0px;
 }
@@ -1150,7 +1155,7 @@ body {
 	margin-bottom:0.3em;
 	font-size:1.2em;
 	text-transform:uppercase;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 }
 .news_desc h4 span a{
 	text-decoration:underline;
@@ -1223,6 +1228,11 @@ body {
 .group {
 	zoom: 1;
 }
+
+.group1 {
+	zoom: 1;
+}
+
 .col {
 	display: block;
 	float: left;
@@ -1242,7 +1252,7 @@ body {
 .span_2_of_3  h2, .span_1_of_3  h2 {
 	margin-bottom: 0.5em;
 	line-height: 1.2;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	margin-top: 0px;
 }
@@ -1280,7 +1290,7 @@ body {
 .contact-form input[type="submit"] {
 	font-size:1em;
 	padding:10px 15px;
-	font-family: 'ambleregular';
+	font-family: Arial, Helvetica, sans-serif;
 	background:#CD1F25;
 	color: #FFF;
 	border:none;
@@ -1604,14 +1614,17 @@ body {
     width: 55px;
     height: 41px;
 }
- .razm{
+.razm{
     width: 120px;
     height: 90px;
 	vertical-align: top;
  }
  
- .search1{
+.search1{
     border: 2px ridge red;
 	border-radius: 5px;
 	width: 100%;
 }
+ .white{
+    background: white;
+ }

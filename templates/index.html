@@ -15,6 +15,12 @@
     <script type="text/javascript" src="{% static 'js/startstop-slider.js' %}"></script>
 {% endblock %}
 <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+{% block cart_css %}	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/wicart.css' %}" />
+{% endblock %}
+{% block cart_js %}
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+{% endblock %}
 </head>
 
 <body>
@@ -27,13 +33,13 @@
             </div>
 			<div class="cart">
 			    <p><span>Корзина: &nbsp </span>
-                <div id="dd" class="wrapper-dropdown-2"> 0 товар(ов) - 0.00 грн
+                <div id="dd" class="wrapper-dropdown-2">
                     <div><img src="{% static 'images/cart.png' %}" class="razm" alt="" /></div>
 					<ul class="dropdown">
                         <li>у вас пока нет выбраных товаров</li>
                     </ul>
                 </div>
-	                   </p>
+	            </p>
             </div>
             <script type="text/javascript">
             function DropDown(el) {
@@ -175,7 +181,7 @@
                             <p><span class="rupees">${{good.price}}</span></p>
                         </div>
                         <div class="add-cart">
-                            <h4><a href="{% url 'main-preview' pk=good.pk %}">Add to Cart</a></h4>
+						    <h4><a href="#!" onclick="cart.addToCart(this, id=good.pk, good.price)">Add to Cart</a></h4>
                         </div>
                         <div class="clear"></div>
                     </div>

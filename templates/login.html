@@ -7,10 +7,82 @@
 {% endblock %}
 
 {% block main %}
- <div class="main">
-    <div class="content">
-    	
-    </div>
- </div>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate-custom.css' %}" />
+</head>
+<body>
+    <div class="container">
+        <section>				
+            <div id="container_demo" >
+                <a class="hiddenanchor" id="toregister"></a>
+                <a class="hiddenanchor" id="tologin"></a>
+                <div id="wrapper">
+                    <div id="login" class="animate form">
+                        <form  autocomplete="on"> 
+                            <h1>Вход</h1> 
+                            <p> 
+                                <label for="username" class="uname"> Ваш @mail: </label>
+                                <input id="username" name="username" required="required" type="email" placeholder="mymail@mail.com"/>
+                            </p>
+                            <p> 
+                                <label for="password" class="youpasswd"> Ваш пароль: </label>
+                                <input id="password" name="password" required="required" type="password" placeholder="X8df!90EO" /> 
+                            </p>
+                            <p class="keeplogin"> 
+									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+									<label for="loginkeeping">Запомнить меня</label>
+	    					</p>
+                            <p class="login buton"> 
+                                    <input type="submit" value="Войти" /> 
+     						</p>
+                                <p class="change_link">
+									Еще не зарегестрировались?
+									<a href="#toregister" class="to_register">Присоединяйтесь!</a>
+								</p>
+                            </form>
+                        </div>
+
+                        <div id="register" class="animate form">
+                            <form autocomplete="on"> 
+                                <h1> Регистрация </h1> 
+                                <p> 
+                                    <label for="usernamesignup" class="uname">Ваше имя:</label>
+                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+								<p> 
+                                    <label for="usersurnamesignup" class="uname">Ваша фамилия:</label>
+                                    <input id="usersurnamesignup" name="usersurnamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail">Ваш @mail:</label>
+                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd">Ваш пароль:</label>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="X8df!90EO"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd">Пожалуйста повторите пароль: </label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="X8df!90EO"/>
+                                </p>
+                                <p class="signin buton"> 
+									<input type="submit" value="Зарегистрироваться"/> 
+								</p>
+                                <p class="change_link">  
+									Уже зарегестрировались?
+									<a href="#tologin" class="to_register"> Войти </a>
+								</p>
+                            </form>
+                        </div>
+						
+                    </div>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>
 {% endblock %}
 

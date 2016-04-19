@@ -45,6 +45,10 @@ class Picture(models.Model):
         url = reverse('main-picture', kwargs={'pk':self.pk})
         return format_html('<a href="{}" target="_blank"><img src="{}" width="160px"></a>', url, url)
 
+    @property
+    def good_title(self):
+        return self.good.title
+
     def __unicode__(self):
         return self.url
 

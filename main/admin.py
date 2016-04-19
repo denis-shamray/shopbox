@@ -12,7 +12,7 @@ admin.site.register(Good, GoodAdmin)
 
 
 class PictureAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'preview', 'created_at', 'updated_at')
+    list_display = ('pk', 'good_title', 'preview', 'created_at', 'updated_at')
 
 
 admin.site.register(Picture, PictureAdmin)
