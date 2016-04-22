@@ -23,6 +23,7 @@ from main.views import DeliveryView
 from main.views import LoginView
 from main.views import PictureView
 from main.views import CartAddRedirectView
+from main.views import FormView
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='main-index'),
@@ -33,6 +34,8 @@ urlpatterns = [
     url(r'^login$', LoginView.as_view(), name='main-login'),
     url(r'^picture/(?P<pk>[0-9]+)$', PictureView.as_view(), name='main-picture'),
     url(r'^cart/add/(?P<pk>[0-9]+)/(?P<url>.+)$', CartAddRedirectView.as_view(), name='main-cart-add'),
+    url(r'^cart/add/(?P<pk>[0-9]+)/(?P<url>.+)/(?P<url_pk>[0-9]+)$', CartAddRedirectView.as_view(), name='main-cart-add-pk'),
+    url(r'^form$', FormView.as_view(), name='main-form'),
 
     url(r'^files/', include('db_file_storage.urls')),
 ]

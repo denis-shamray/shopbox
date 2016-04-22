@@ -1,0 +1,27 @@
+{% load staticfiles %}
+{% load mathfilters %}
+<div class="cart">
+	<p><span>Корзина: &nbsp {{ cart.summ }} грн</span>
+		<div id="dd" class="wrapper-dropdown-2">
+            <div><img src="{% static 'images/cart.png' %}" class="razm" alt="" /></div>
+            {% if not cart %}
+            <ul class="dropdown">
+                <li>у вас пока нет выбраных товаров</li>
+            </ul>
+            {% else %}
+            <ul class="dropdown">
+            {% for item in cart.items %}
+                <li>{{ item.count }} x {{item.good.title}} [{{item.good.price}} грн] :  {{ item.good.price|mul:item.count }} грн </li>
+            {% endfor %}
+                <li><hr></li>
+                <li>Total cost: {{ cart.summ }}грн</li>
+                <div class="add-cart">
+					<h4>
+					    <a href="{% url 'main-form' %}">Оформить заказ</a>
+						<a href="#" class="border" onclick="document.cookie = 'SB-Cart=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'; location.reload()">Очистить</a></h4>
+                </div>
+				</ul>
+                {% endif %}
+		</div>
+	</p>
+</div>

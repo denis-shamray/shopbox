@@ -71,6 +71,10 @@ class LoginView(BaseView):
     template_name = "login.html"
 
 
+class FormView(BaseView):
+    template_name = "form_zakaz.html"
+
+
 class PictureView(View):
     def get(self, request, pk, *args, **kwargs):
         picture = Picture.objects.get(pk=pk)
@@ -109,4 +113,4 @@ class CartAddRedirectView(RedirectView):
         return response
 
     def get_redirect_url(self, url, *args, **kwargs):
-        return reverse(url, kwargs={})
+        return reverse(url, kwargs=kwargs)

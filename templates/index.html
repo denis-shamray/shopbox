@@ -32,26 +32,7 @@
             <div class="logo">&nbsp &nbsp &nbsp &nbsp
                 <a href="{% url 'main-index' %}"><img src="{% static 'images/logo.png' %}" alt="" /></a>
             </div>
-			<div class="cart">
-			    <p><span>Корзина: &nbsp </span>
-                <div id="dd" class="wrapper-dropdown-2">
-                    <div><img src="{% static 'images/cart.png' %}" class="razm" alt="" /></div>
-                    {% if not cart %}
-                    <ul class="dropdown">
-                        <li>у вас пока нет выбраных товаров</li>
-                     </ul>
-                    {% else %}
-                    <ul class="dropdown">
-                        {% for item in cart.items %}
-                        <li>{{ item.count }} x {{item.good.title}} [{{item.good.price}}$] :  {{ item.good.price|mul:item.count }}$ </li>
-                        {% endfor %}
-                        <li><hr></li>
-                        <li>Total cost: {{ cart.summ }}$</li>
-                     </ul>
-                    {% endif %}
-                </div>
-	            </p>
-            </div>
+{% include "cart.html" %}
             <script type="text/javascript">
             function DropDown(el) {
                 this.dd = el;
@@ -192,7 +173,7 @@
                             <p><span class="rupees">${{good.price}}</span></p>
                         </div>
                         <div class="add-cart">
-						    <h4><a href="#!" onclick="cart.addToCart(this, pk=good.pk, good.price)">Add to Cart</a></h4>
+						    <h4><a href="{% url 'main-cart-add' pk=good.pk url=url_name %}">Add to Cart</a></h4>
                         </div>
                         <div class="clear"></div>
                     </div>

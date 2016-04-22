@@ -1,5 +1,6 @@
 {% extends "index.html" %}
 {% load staticfiles %}
+{% load mathfilters %}
 
 {% block extra_css %}
     <link href="{% static 'css/easy-responsive-tabs.css' %}" rel="stylesheet" type="text/css" media="all"/>
@@ -85,7 +86,7 @@
                                         <li><a href="#"><img src="{% static 'images/twitter.png' %}" alt="" /></a></li>
                                     </ul>
                                 </div>
-                                <div class="button"><span><a href="#">Add to Cart</a></span></div>
+                                <div class="button"><span><a href="{% url 'main-cart-add-pk' pk=good.pk url=url_name url_pk=good.pk %}">Add to Cart</a></span></div>
                                 <div class="clear"></div>
                             </div>
                             <div class="wish-list">

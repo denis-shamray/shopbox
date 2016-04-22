@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% include "index-menu.html" %}
+
+{% block header_slide %}
+{% endblock %}
+
+{% block main %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate-custom.css' %}" />
+</head>
+<body>
+    <div class="container">
+        <section>				
+            <div id="container_demo" >
+                <a class="hiddenanchor" id="toregister"></a>
+                <a class="hiddenanchor" id="tologin"></a>
+                <div id="wrapper">
+                    <div id="login" class="animate form">
+                        <form  autocomplete="on"> 
+                            <h1>Форма заказа</h1> 
+                            <p> 
+                                <label for="name" class="uname">Ваше имя:</label>
+                                <input id="name" name="name" required="required" type="text" placeholder="Иван" />
+                            </p>
+							<p> 
+                                <label for="sersurname" class="uname">Ваша фамилия:</label>
+                                <input id="sersurname" name="sersurname" required="required" type="text" placeholder="Иванов" />
+                            </p>
+							<p> 
+                                <label for="usersurnamesignup" class="uname">Ваш контактный номер:</label>
+                                <input id="usersurnamesignup" name="usersurnamesignup" required="required" type="text" placeholder="0123456789" />
+                            </p>
+                            <p class="login buton"> 
+                                <input type="submit" value="Оформить заказ" /> 
+     						</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>
+{% endblock %}
+

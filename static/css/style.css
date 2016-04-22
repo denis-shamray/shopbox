@@ -132,7 +132,7 @@ body {
 .wrapper-dropdown-2 .dropdown {
     position: absolute;
     top: 100%;
-    width:75%;
+    width: 90%;
     right: 0px;
     z-index:1;
     background:#EEE;
@@ -144,6 +144,8 @@ body {
     list-style: none;
     opacity: 0;
     pointer-events: none;
+    border-radius: 8px;
+    border: 1px solid black;
 }
 .wrapper-dropdown-2 .dropdown li{
     display: block;
@@ -1628,3 +1630,8 @@ body {
  .white{
     background: white;
  }
+
+ .border{
+ border-radius: 0 0 7px 0;
+ }
+ 
