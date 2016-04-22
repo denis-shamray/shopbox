@@ -1,21 +1,39 @@
+import datetime
+import json
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 from django.views.generic import View
 from django.core.urlresolvers import resolve
+from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 from django.views.generic.base import RedirectView
 
 from main.models import Good
 from main.models import Picture
 
+CART_COOKIE = 'SB-Cart'
+
 
 class BaseView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(BaseView, self).get_context_data(**kwargs)
+
+        cookie_cart = self.request.COOKIES.get(CART_COOKIE)
+        cookie_cart = json.loads(cookie_cart) if cookie_cart else {}
+
+	cart = {'items': [], 'summ': 0}
+        for pk, count in cookie_cart.items():
+            good = Good.objects.get(pk=pk)
+            cart['items'].append({
+                'count': count,
+                'good': good
+            })
+            cart['summ'] += good.price * count
+
         url_name = resolve(self.request.path).url_name
         context['url_name'] = url_name
         context['goods'] = Good.objects.all()
-        #TODO: content['cart'] = # load data from cookies
+        context['cart'] = cart
         return context
 
 
@@ -72,7 +90,23 @@ class CartAddRedirectView(RedirectView):
     query_string = True
     pattern_name = 'main-cart-add'
 
-    def get_redirect_url(self, pk, url, *args, **kwargs):
+
+    def get(self, request, pk, *args, **kwargs):
         good = get_object_or_404(Good, pk=pk)
-        #TODO: add good.pk and count into the cart-cookie
-        return url
+        response = super(CartAddRedirectView, self).get(request, *args, **kwargs)
+
+        cart = self.request.COOKIES.get(CART_COOKIE)
+        cart = json.loads(cart) if cart else {}
+
+        if pk in cart:
+            cart[pk] += 1
+        else:
+            cart[pk] = 1
+
+        max_age = 7 * 24 * 60 * 60  #one week
+        expires = datetime.datetime.strftime(datetime.datetime.utcnow() + datetime.timedelta(seconds=max_age), "%a, %d-%b-%Y %H:%M:%S GMT")
+        response.set_cookie(CART_COOKIE, json.dumps(cart), max_age=max_age, expires=expires)
+        return response
+
+    def get_redirect_url(self, url, *args, **kwargs):
+        return reverse(url, kwargs={})
