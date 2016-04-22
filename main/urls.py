@@ -33,4 +33,6 @@ urlpatterns = [
     url(r'^login$', LoginView.as_view(), name='main-login'),
     url(r'^picture/(?P<pk>[0-9]+)$', PictureView.as_view(), name='main-picture'),
     url(r'^cart/add/(?P<pk>[0-9]+)/(?P<url>.+)$', CartAddRedirectView.as_view(), name='main-cart-add'),
+
+    url(r'^files/', include('db_file_storage.urls')),
 ]
