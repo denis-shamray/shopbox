@@ -13,18 +13,16 @@
 			<ul class="dropdown">
             <table>
 			    <tr  class="border2">
-				     <td class="border2">Название</td><td  class="border2">Кол-во:</td><td  class="border2">Цена т-ра:</td><td  class="border2">Итого:</td>
+				    <td class="border2"></td><td class="border2">Название:</td><td  class="border2">Кол-во:</td><td  class="border2">Цена товара:</td><td  class="border2">Итого:</td>
 				</tr>
 				{% for item in cart.items %}
-                <table>
-				    <tr>
-				        <td class="border3"> {{ item.good.title }} </td><td> {{ item.count }} </td><td> {{ item.good.price }} грн </td><td class="border4"> {{ item.good.price|mul:item.count }} грн</td>
-				    </tr>
-				</table>
-			</table>
-            {% endfor %}
+                <tr class="border2 border5">
+				        <td class="border3  border5"><img src="{% url 'main-picture' item.good.pictures.all.0.pk %}" alt=""/></td><td class="border5"> {{ item.good.title }} </td><td class="border5"> {{ item.count }} </td><td class="border5"> {{ item.good.price }} грн </td><td class="border4 border5"> {{ item.good.price|mul:item.count }} грн</td>
+				</tr>
+				{% endfor %}
+		    </table>
                 <li><hr></li>
-                <li class="cost">Всего: {{ cart.summ }} грн</li>
+                <li class="cost">Всего в корзине на: <div class="cost">{{ cart.summ }} грн</div></li>
                 <div class="add-cart razme">
 		            <h4><a href="#" class="border" onclick="document.cookie = 'SB-Cart=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'; location.reload()">Очистить</a></h4>
                 </div>
