@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load mathfilters %}
+
 <div class="cart">
 	<p><span>Корзина: &nbsp {{ cart.summ }} грн</span>
 		<div id="dd" class="wrapper-dropdown-2">
@@ -9,18 +10,28 @@
                 <li>у вас пока нет выбраных товаров</li>
             </ul>
             {% else %}
-            <ul class="dropdown">
-            {% for item in cart.items %}
-                <li>{{ item.count }} x {{item.good.title}} [{{item.good.price}} грн] :  {{ item.good.price|mul:item.count }} грн </li>
+			<ul class="dropdown">
+            <table>
+			    <tr  class="border2">
+				     <td class="border2">Название</td><td  class="border2">Кол-во:</td><td  class="border2">Цена т-ра:</td><td  class="border2">Итого:</td>
+				</tr>
+				{% for item in cart.items %}
+                <table>
+				    <tr>
+				        <td class="border3"> {{ item.good.title }} </td><td> {{ item.count }} </td><td> {{ item.good.price }} грн </td><td class="border4"> {{ item.good.price|mul:item.count }} грн</td>
+				    </tr>
+				</table>
+			</table>
             {% endfor %}
                 <li><hr></li>
-                <li>Total cost: {{ cart.summ }}грн</li>
-                <div class="add-cart">
-					<h4>
-					    <a href="{% url 'main-form' %}">Оформить заказ</a>
-						<a href="#" class="border" onclick="document.cookie = 'SB-Cart=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'; location.reload()">Очистить</a></h4>
+                <li class="cost">Всего: {{ cart.summ }} грн</li>
+                <div class="add-cart razme">
+		            <h4><a href="#" class="border" onclick="document.cookie = 'SB-Cart=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'; location.reload()">Очистить</a></h4>
                 </div>
-				</ul>
+		        <div class="add-cart razme">
+		            <h4><a class="border1" href="{% url 'main-form' %}">Оформить заказ</a></h4>
+                </div>
+			</ul>
                 {% endif %}
 		</div>
 	</p>

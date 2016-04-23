@@ -135,7 +135,7 @@ body {
     width: 90%;
     right: 0px;
     z-index:1;
-    background:#EEE;
+    background:#585858;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out;
@@ -150,8 +150,8 @@ body {
 .wrapper-dropdown-2 .dropdown li{
     display: block;
     text-decoration: none;
-    color: #333;
-    font-size:0.823em;
+    color: white;
+    *font-size:0.823em;
     padding: 10px;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
@@ -1627,11 +1627,61 @@ body {
 	border-radius: 5px;
 	width: 100%;
 }
- .white{
-    background: white;
- }
 
- .border{
- border-radius: 0 0 7px 0;
- }
- 
+.white{
+    background: white;
+}
+
+.border{
+    border-radius: 0 0 7px 0;
+	text-align: center;
+	border-left-color: #585858;
+    border-left-style: solid;
+    border-left-width: 1px;
+	border-top-color: #585858;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+.border1{
+    border-radius: 0 0 0 7px;
+	text-align: center;
+	border-right-color: #585858;
+    border-right-style: solid;
+    border-right-width: 1px;
+	border-top-color: #585858;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+.razme{
+    width: 50%;
+}
+
+.cost{
+	text-align:center;
+    font-size:1.8em;
+}
+
+.border2{
+    text-align:center;
+	border:none;
+    width:28.2%;
+}
+
+.border3{
+    border-left:none;
+}
+.border4{
+    border-right:none;
+}
+
+tr td{
+    vertical-align:middle;
+    color:white;
+	text-align:center;
+	font-size:1em;
+	border: 1px solid white;
+	padding: 3px;
+	width:25%;
+}
