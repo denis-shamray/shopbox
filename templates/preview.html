@@ -34,7 +34,7 @@
         <div class="content">
             <div class="content_top">
                 <div class="back-links">
-                    <p><a href="{% url "main-index" %}">Home</a> >>>> <a href="#">Electronics</a></p>
+                    <p><a href="{% url "main-index" %}">Каталог</a>/<a href="#"> {{ good.title }} </a></p>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -46,10 +46,10 @@
                                 <div id="products_example">
                                     <div id="products">
                                         <div class="slides_container">
-                                            {% for picture in good.pictures.all %}<a href="#" target="_blank"><img src="{% url 'main-picture' picture.pk %}" alt=" " /></a> {% endfor %}
+                                            {% for picture in good.pictures.all %}<a href="#!" target="_blank"><img src="{% url 'main-picture' picture.pk %}" alt=" " /></a> {% endfor %}
                                         </div>
                                         <ul class="pagination">
-                                            {% for picture in good.pictures.all %}<li><a href="#"><img class="razmer" src="{% url 'main-picture' picture.pk %}" alt=" " /></a></li> {% endfor %}
+                                            {% for picture in good.pictures.all %}<li><a href="#!"><img class="razmer" src="{% url 'main-picture' picture.pk %}" alt=" " /></a></li> {% endfor %}
                                         </ul>
                                     </div>
                                 </div>
@@ -79,22 +79,22 @@
                             </div>
                             {% endif %}
                             <div class="share-desc">
-                                <div class="share">
+                                <!-- <div class="share">
                                     <p>Share Product :</p>
                                     <ul>
                                         <li><a href="#"><img src="{% static 'images/facebook.png' %}" alt="" /></a></li>
                                         <li><a href="#"><img src="{% static 'images/twitter.png' %}" alt="" /></a></li>
                                     </ul>
-                                </div>
+                                </div> -->
                                 <div class="button"><span><a href="{% url 'main-cart-add-pk' pk=good.pk url=url_name url_pk=good.pk %}">Add to Cart</a></span></div>
                                 <div class="clear"></div>
                             </div>
-                            <div class="wish-list">
+                            <!-- <div class="wish-list">
                                 <ul>
                                     <li class="wish"><a href="#">Add to Wishlist</a></li>
                                     <li class="compare"><a href="#">Add to Compare</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -201,13 +201,7 @@
                     </div>
                 </div>
                 <div class="rightsidebar span_3_of_1">
-                    <h2>CATEGORIES</h2>
-                    <ul>
-                        <li><a href="#">Mobile Phones</a></li>
-                        <li><a href="#">Desktop</a></li>
-                        <li><a href="#">Laptop</a></li>
-                        <li><a href="#">Accessories</a></li>
-                    </ul>
+{% include "categories.html" %} 
                 </div>
             </div>
         </div>

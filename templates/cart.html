@@ -2,10 +2,10 @@
 {% load mathfilters %}
 
 <div class="cart">
-	<p><span>Корзина: &nbsp {{ cart.summ }} грн</span>
+	<p><span>{% if cart.summ = 0 %} <div></div> {% else %}&nbsp Всего на {{ cart.summ }} грн {% endif %}</span>
 		<div id="dd" class="wrapper-dropdown-2">
             <div><img src="{% static 'images/cart.png' %}" class="razm" alt="" /></div>
-            {% if not cart %}
+            {% if cart.summ = 0 %}
             <ul class="dropdown">
                 <li>у вас пока нет выбраных товаров</li>
             </ul>
@@ -17,7 +17,7 @@
 				</tr>
 				{% for item in cart.items %}
                 <tr class="border2 border5">
-				        <td class="border3  border5"><img src="{% url 'main-picture' item.good.pictures.all.0.pk %}" alt=""/></td><td class="border5"> {{ item.good.title }} </td><td class="border5"> {{ item.count }} </td><td class="border5"> {{ item.good.price }} грн </td><td class="border4 border5"> {{ item.good.price|mul:item.count }} грн</td>
+				        <td class="border3  border5"><img src="{% url 'main-picture' item.good.pictures.all.0.pk %}" alt=""/></td><td class="border5 nazv">{{ item.good.title }}</td><td class="border5"> {{ item.count }} </td><td class="border5"> {{ item.good.price }} грн </td><td class="border4 border5 kol"> {{ item.good.price|mul:item.count }} грн</td>
 				</tr>
 				{% endfor %}
 		    </table>
@@ -30,7 +30,7 @@
 		            <h4><a class="border1" href="{% url 'main-form' %}">Оформить заказ</a></h4>
                 </div>
 			</ul>
-                {% endif %}
+            {% endif %}
 		</div>
 	</p>
 </div>
