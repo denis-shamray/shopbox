@@ -17,10 +17,10 @@
 				</tr>
 				{% for item in cart.items %}
                 <tr class="border2 border5">
-				        <td class="border3  border5"><img src="{% url 'main-picture' item.good.pictures.all.0.pk %}" alt=""/></td><td class="border5 nazv">{{ item.good.title }}</td><td class="border5"> {{ item.count }} </td><td class="border5"> {{ item.good.price }} грн </td><td class="border4 border5 kol"> {{ item.good.price|mul:item.count }} грн</td>
+				    <td class="border3  border5"><img src="{% url 'main-picture' item.good.pictures.all.0.pk %}" alt=""/></td><td class="border5 nazv">{{ item.good.title }}</td><td class="border5"> {{ item.count }} </td><td class="border5"> {{ item.good.price }} грн </td><td class="border4 border5 kol"> {{ item.good.price|mul:item.count }} грн</td>
 				</tr>
 				{% endfor %}
-		    </table>
+			</table>
                 <li><hr></li>
                 <li class="cost">Всего в корзине на: <div class="cost">{{ cart.summ }} грн</div></li>
                 <div class="add-cart razme">

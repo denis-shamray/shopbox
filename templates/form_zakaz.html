@@ -1,5 +1,6 @@
 {% extends "index.html" %}
 {% load staticfiles %}
+{% load mathfilters %}
 
 {% include "index-menu.html" %}
 
@@ -15,15 +16,28 @@
 </head>
 <body>
     <div class="container">
-        <section>				
+	    <section>
             <div id="container_demo" >
                 <a class="hiddenanchor" id="toregister"></a>
                 <a class="hiddenanchor" id="tologin"></a>
                 <div id="wrapper">
                     <div id="login" class="animate form">
-                        <form  autocomplete="on"> 
+                        <form  autocomplete="on" id="zakaz">
                             <h1>Форма заказа</h1> 
-                            <p> 
+							<table>
+			                    <tr  class="border2">
+				                    <td class="border2"></td><td class="border2">Название:</td><td  class="border2">Кол-во:</td><td  class="border2">Цена товара:</td><td  class="border2">Итого:</td>
+				                </tr>
+				            {% for item in cart.items %}
+                                <tr class="border2">
+				                    <td class="border3"><img src="{% url 'main-picture' item.good.pictures.all.0.pk %}" alt=""/></td><td class="nazv">{{ item.good.title }}</td><td> {{ item.count }} </td><td> {{ item.good.price }} грн </td><td class="border4 kol"> {{ item.good.price|mul:item.count }} грн</td>
+				                </tr>
+				            {% endfor %}
+							</table>
+							<div class="cost1">Заказ на сумму: {{ cart.summ }} грн*</div>
+							<div class="cost2">*Сумма заказа указана без учета оплаты за доставку.</div>
+                            &nbsp
+							<p>
                                 <label for="name" class="uname">Ваше имя:</label>
                                 <input id="name" name="name" required="required" type="text" placeholder="Иван" />
                             </p>
@@ -32,19 +46,23 @@
                                 <input id="sersurname" name="sersurname" required="required" type="text" placeholder="Иванов" />
                             </p>
 							<p> 
-                                <label for="usersurnamesignup" class="uname">Ваш контактный номер:</label>
-                                <input id="usersurnamesignup" name="usersurnamesignup" required="required" type="text" placeholder="0123456789" />
+                                <label for="tel" class="uname">Ваш контактный номер:</label>
+                                <input id="tel" name="tel" required="required" type="tel" pattern="+38 (0[0-9]{2})-[0-9]{7}" placeholder="+38 (012) 3453489" />
+                            </p>
+							<p>
+                                <label for="place" class="uname">Адрес доставки: <I class="cost2 style">Город, улица, номер дома</I></label>
+                                <input id="place" name="place" required="required" type="text" placeholder="Киев, ул. Металистов, 2" />
                             </p>
                             <p class="login buton"> 
                                 <input type="submit" value="Оформить заказ" /> 
      						</p>
                             </form>
-                        </div>
                     </div>
-                </div>  
-            </section>
-        </div>
-    </body>
+                </div>
+            </div>
+        </section>
+	</div>
+</body>
 </html>
 {% endblock %}
 
