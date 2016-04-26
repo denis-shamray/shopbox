@@ -1072,9 +1072,9 @@ body {
 	padding:1.5%; 
 }
 .images_1_of_3  img {
-	max-width:100%;
+	max-width:80%;
 	display:block;
-	border: 1px solid #ECE6E6;
+	*border: 1px solid #ECE6E6;
 }
 .images_1_of_3  h3{
 	color:#383838;
