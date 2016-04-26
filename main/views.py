@@ -10,6 +10,7 @@ from django.views.generic.base import RedirectView
 
 from main.models import Good
 from main.models import Picture
+from main.models import Category
 
 CART_COOKIE = 'SB-Cart'
 
@@ -33,12 +34,20 @@ class BaseView(TemplateView):
         url_name = resolve(self.request.path).url_name
         context['url_name'] = url_name
         context['goods'] = Good.objects.all()
+        context['categories'] = Category.objects.all()
         context['cart'] = cart
         return context
 
 
 class IndexView(BaseView):
     template_name = "index.html"
+
+    def get_context_data(self, category_pk=None, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        if category_pk:
+            category_pk = int(category_pk)
+            context['goods'] = Good.objects.filter(category__pk=category_pk)
+        return context
 
 
 class PreviewView(BaseView):

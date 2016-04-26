@@ -36,6 +36,8 @@ urlpatterns = [
     url(r'^cart/add/(?P<pk>[0-9]+)/(?P<url>.+)$', CartAddRedirectView.as_view(), name='main-cart-add'),
     url(r'^cart/add/(?P<pk>[0-9]+)/(?P<url>.+)/(?P<url_pk>[0-9]+)$', CartAddRedirectView.as_view(), name='main-cart-add-pk'),
     url(r'^form$', FormView.as_view(), name='main-form'),
+    url(r'^category/(?P<category_pk>[0-9]+)$', IndexView.as_view(), name='main-category'),
+
 
     url(r'^files/', include('db_file_storage.urls')),
 ]

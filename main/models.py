@@ -5,6 +5,13 @@ from django.utils.html import format_html
 import json
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return self.name
+
+
 class Good(models.Model):
     title = models.CharField(max_length=255)
     short = models.TextField()
@@ -13,6 +20,7 @@ class Good(models.Model):
     details = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    category = models.ForeignKey(Category, related_name="category", null=True, blank=True, default=None)
 
     def get_options(self):
         return json.loads(self.options_text)
