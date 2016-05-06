@@ -37,4 +37,4 @@ class Migration(migrations.Migration):
                 ('good', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='pictures', to='main.Good')),
             ],
         ),
-    ]
+   ]

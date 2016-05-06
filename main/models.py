@@ -62,3 +62,17 @@ class Picture(models.Model):
 
     class Meta:
         ordering = ['pk']
+
+
+class Zakaz(models.Model):
+    firstname = models.CharField(max_length=255)
+    lastname = models.CharField(max_length=255)
+    tel = models.CharField(max_length=255)
+    place = models.CharField(max_length=255)
+    cart = models.TextField()
+    state =  models.CharField(max_length=255, default="new")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+
+

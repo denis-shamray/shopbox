@@ -23,12 +23,14 @@ class BaseView(TemplateView):
         cookie_cart = json.loads(cookie_cart) if cookie_cart else {}
 
 	cart = {'items': [], 'summ': 0}
+        prices = {}
         for pk, count in cookie_cart.items():
             good = Good.objects.get(pk=pk)
             cart['items'].append({
                 'count': count,
                 'good': good
             })
+            prices[pk] = float(good.price)
             cart['summ'] += good.price * count
 
         url_name = resolve(self.request.path).url_name
@@ -36,6 +38,10 @@ class BaseView(TemplateView):
         context['goods'] = Good.objects.all()
         context['categories'] = Category.objects.all()
         context['cart'] = cart
+        context['cart_json'] = json.dumps({
+            'items': cookie_cart,
+            'prices': prices
+        })
         return context
 
 

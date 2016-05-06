@@ -22,7 +22,8 @@
                 <a class="hiddenanchor" id="tologin"></a>
                 <div id="wrapper">
                     <div id="login" class="animate form">
-                        <form  autocomplete="on" id="zakaz">
+                        <form  autocomplete="on" id="zakaz" method="post">
+		            {% csrf_token %}
                             <h1>Форма заказа</h1> 
 							<table>
 			                    <tr  class="border2">
@@ -38,12 +39,12 @@
 							<div class="cost2">*Сумма заказа указана без учета оплаты за доставку.</div>
                             &nbsp
 							<p>
-                                <label for="name" class="uname">Ваше имя:</label>
-                                <input id="name" name="name" required="required" type="text" placeholder="Иван" />
+                                <label for="firstname" class="uname">Ваше имя:</label>
+                                <input id="firstname" name="firstname" required="required" type="text" placeholder="Иван" />
                             </p>
 							<p> 
-                                <label for="sersurname" class="uname">Ваша фамилия:</label>
-                                <input id="sersurname" name="sersurname" required="required" type="text" placeholder="Иванов" />
+                                <label for="lastname" class="uname">Ваша фамилия:</label>
+                                <input id="lastname" name="lastname" required="required" type="text" placeholder="Иванов" />
                             </p>
 							<p> 
                                 <label for="tel" class="uname">Ваш контактный номер:</label>
@@ -55,7 +56,8 @@
                             </p>
                             <p class="login buton"> 
                                 <input type="submit" value="Оформить заказ" /> 
-     						</p>
+     			    </p>
+                                <input name="cart" type="hidden" value="{{cart_json}}">
                             </form>
                     </div>
                 </div>
