@@ -12,23 +12,25 @@
     	<div class="section group">
 				<div class="col span_2_of_3">
 				  <div class="contact-form">
-			            <h2>Ваши предложения и вопросы</h2>
-					    <form method="post" action="contact-post.html">
-					    	<div>
+			              {% csrf_token %}
+                                      <h2>Ваши предложения и вопросы</h2>
+					    <form method="post">
+					    {% csrf_token %}
+                                         	<div>
 						        <span><label>Фамилия Имя:</label></span>
-						    	<span><input name="userName" type="text" class="textbox" ></span>
+						    	<span><input name="username" type="text" class="textbox" ></span>
 						    </div>
 						    <div>
 						        <span><label>E-mail:</label></span>
-						    	<span><input name="userEmail" type="text" class="textbox"></span>
+						    	<span><input name="useremail" type="text" class="textbox"></span>
 						    </div>
 						    <div>
 						        <span><label>Ваш контактный номер телефона:</label></span>
-						    	<span><input name="userPhone" type="text" class="textbox"></span>
+						    	<span><input name="userphone" type="text" class="textbox"></span>
 						    </div>
 						    <div>
 						        <span><label>Ваше письмо:</label></span>
-						    	<span><textarea name="userMsg"> </textarea></span>
+						    	<span><textarea name="usermsg"> </textarea></span>
 						    </div>
 						   <div>
 						        <span><input type="submit" value="Отправить"  class="myButton"></span>

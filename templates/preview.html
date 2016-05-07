@@ -59,11 +59,12 @@
                             <h2>{{good.title}}</h2>
                             <p>{{good.short}}</p>
                             <div class="price">
-                                <p>Price: <span>${{good.price}}</span></p>
+                                <p>Цена: <span>{{good.price}} грн</span></p>
                             </div>
                             {% if good.get_options %}
                             <div class="available">
-                                <p>Available Options :</p>
+                                <p>Доступные варианты :</p>
+							
                                 <ul>
                                     {% for name, option in good.get_options.items %}
                                     <li>
@@ -86,7 +87,7 @@
                                         <li><a href="#"><img src="{% static 'images/twitter.png' %}" alt="" /></a></li>
                                     </ul>
                                 </div> -->
-                                <div class="button"><span><a href="{% url 'main-cart-add-pk' pk=good.pk url=url_name url_pk=good.pk %}">Add to Cart</a></span></div>
+                                <div class="button"><span><a href="{% url 'main-cart-add-pk' pk=good.pk url=url_name url_pk=good.pk %}">Купить</a></span></div>
                                 <div class="clear"></div>
                             </div>
                             <!-- <div class="wish-list">
@@ -101,8 +102,8 @@
                     <div class="product_desc">
                         <div id="horizontalTab">
                             <ul class="resp-tabs-list">
-                                <li>Product Details</li>
-                                <li>Product Reviews</li>
+                                <li>Описание продукта</li>
+                                <!-- <li>Product Reviews</li> -->
                                 <div class="clear"></div>
                             </ul>
                             <div class="resp-tabs-container">
@@ -154,19 +155,34 @@
                     </script>
                     <div class="content_bottom">
                         <div class="heading">
-                            <h3>Related Products</h3>
+                            <h3>Популярные товары</h3>
                         </div>
                         <div class="see">
-                            <p><a href="#">See all Products</a></p>
+                            <p><a href="{% url 'main-index' %}">Посмотреть все товары</a></p>
                         </div>
                         <div class="clear"></div>
                     </div>
                     <div class="section group">
-                        <div class="grid_1_of_4 images_1_of_4">
+					{% for good in random_goods|slice:":4" %}
+                                <div class="grid_1_of_4 images_1_of_4">
+                                    <a href="{% url 'main-preview' pk=good.pk %}"><img src="{% url 'main-picture' good.pictures.all.0.pk %}" alt="" /></a>
+                                    <h2>{{good.title}}</h2>
+                                    <div class="price-details">
+                                        <div class="price-number">
+                                            <p><span class="rupees">{{good.price}} грн</span></p>
+                                        </div>
+                                    <div class="add-cart">
+						                <h4><a href="{% url 'main-cart-add-pk' pk=good.pk url=url_name url_pk=good.pk %}">Купить</a></h4>
+                                    </div>
+                                    <div class="clear"></div>
+                                    </div>
+                                </div>
+                    {% endfor %}
+                        <!-- <div class="grid_1_of_4 images_1_of_4">
                             <a href="#"><img src="{% static 'images/new-pic1.jpg' %}" alt=""></a>
                             <div class="price" style="border:none">
                                 <div class="add-cart" style="float:none">
-                                    <h4><a href="#">Add to Cart</a></h4>
+                                    <h4><a href="#">Купить</a></h4>
                                 </div>
                                 <div class="clear"></div>
                             </div>
@@ -175,7 +191,7 @@
                             <a href="#"><img src="{% static 'images/new-pic2.jpg' %}" alt=""></a>
                             <div class="price" style="border:none">
                                 <div class="add-cart" style="float:none">
-                                    <h4><a href="#">Add to Cart</a></h4>
+                                    <h4><a href="#">Купить</a></h4>
                                 </div>
                                 <div class="clear"></div>
                             </div>
@@ -184,20 +200,20 @@
                             <a href="#"><img src="{% static 'images/new-pic4.jpg' %}" alt=""></a>
                             <div class="price" style="border:none">
                                 <div class="add-cart" style="float:none">
-                                    <h4><a href="#">Add to Cart</a></h4>
+                                    <h4><a href="#">Купить</a></h4>
                                 </div>
                                 <div class="clear"></div>
                             </div>
                         </div>
                         <div class="grid_1_of_4 images_1_of_4">
-                            <img src="{% static 'images/new-pic3.jpg' %}" alt="">
+                            <a href="#"><img src="{% static 'images/new-pic3.jpg' %}" alt=""></a>
                             <div class="price" style="border:none">
                                 <div class="add-cart" style="float:none">
-                                    <h4><a href="#">Add to Cart</a></h4>
+                                    <h4><a href="#">Купить</a></h4>
                                 </div>
                                 <div class="clear"></div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="rightsidebar span_3_of_1">

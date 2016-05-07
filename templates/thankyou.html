@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% load mathfilters %}
+
+{% include "index-menu.html" %}
+
+{% block header_slide %}
+{% endblock %}
+
+{% block main %}
+<body>
+    <div class="container">
+	    <div class="thank_fon">
+	    <div class="thank">Спасибо за Ваш заказ!</div>
+		<div class="thank1">Наш консультант свяжится с Вами в ближайшее время.</div>
+		<a href="{% url 'main-index' %}" class="button thank_bottom">Вернутся на главную страницу</a>
+		</div>
+	</div>
+</body>
+{% endblock %}
+

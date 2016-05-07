@@ -156,7 +156,7 @@
             <div class="section group">
 {% for good in goods %}
                <div class="grid_1_of_4 images_1_of_4">
-                    <a href="{% url 'main-preview' pk=good.pk %}"><img src="{% url 'main-picture' good.pictures.all.0.pk %}" alt="" /></a>
+                    <a href="{% url 'main-preview' pk=good.pk %}"><img class="img" src="{% url 'main-picture' good.pictures.all.0.pk %}" alt="" /></a>
 
                     <h2>{{good.title}}</h2>
 

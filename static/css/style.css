@@ -359,6 +359,8 @@ body {
 	position: relative;
 }
 .images_1_of_4  img {
+    width: 150px;
+	height: 170px;
 	max-width: 100%;
 }
 .images_1_of_4  h2 {
@@ -612,6 +614,7 @@ body {
 	padding: 1.5%;
 }
 .images_3_of_2  img {
+    width: 60%;
 	max-width: 100%;
 }
 .span_3_of_2  h2 {
@@ -1725,4 +1728,37 @@ table{
 
 .style{
     font-style:italic;
+}
+
+.thank_fon {
+    background-color: white;
+    margin: 120px 50px 100px 20%;
+	padding: 70px 0px 20px 0px;
+    width: 60%;
+	height: 200px;
+	border: 2px solid grey;
+	border-radius: 7px;
+	text-align: center;
+	vertical-align: center;
+	color: #383838;
+}
+
+.thank{
+    font-size: 48px;
+}
+
+.thank1{
+    font-size: 20px;
+	color: #585858;
+}
+
+.thank_bottom{
+    padding: 50px;
+    font-size: 18px;
+	vertical-align: bottom;
+}
+
+.img{
+    width: 260px;
+	height: 280px;
 }

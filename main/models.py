@@ -43,15 +43,17 @@ class PictureImage(models.Model):
 
 class Picture(models.Model):
     good = models.ForeignKey(Good, related_name="pictures")
-    url = models.URLField(max_length=255)
     image = models.ImageField(upload_to='main.PictureImage/bytes/filename/mimetype', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     @property
+    def url(self):
+        return reverse('main-picture', kwargs={'pk':self.pk})
+
+    @property
     def preview(self):
-        url = reverse('main-picture', kwargs={'pk':self.pk})
-        return format_html('<a href="{}" target="_blank"><img src="{}" width="160px"></a>', url, url)
+        return format_html('<a href="{}" target="_blank"><img src="{}" width="160px"></a>', self.url, self.url)
 
     @property
     def good_title(self):
@@ -75,4 +77,11 @@ class Zakaz(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     
 
-
+class Msg(models.Model):
+    username = models.CharField(max_length=255)
+    useremail = models.CharField(max_length=255)
+    userphone = models.CharField(max_length=255)
+    usermsg = models.TextField()
+    state =  models.CharField(max_length=255, default="new")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

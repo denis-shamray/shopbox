@@ -1,3 +1,4 @@
+from copy import copy
 import datetime
 import json
 from django.http import HttpResponse
@@ -11,6 +12,8 @@ from django.views.generic.base import RedirectView
 from main.models import Good
 from main.models import Picture
 from main.models import Category
+from main.models import Zakaz
+from main.models import Msg
 
 CART_COOKIE = 'SB-Cart'
 
@@ -36,6 +39,7 @@ class BaseView(TemplateView):
         url_name = resolve(self.request.path).url_name
         context['url_name'] = url_name
         context['goods'] = Good.objects.all()
+        context['random_goods'] = Good.objects.all().order_by("?")
         context['categories'] = Category.objects.all()
         context['cart'] = cart
         context['cart_json'] = json.dumps({
@@ -77,6 +81,15 @@ class AboutView(BaseView):
 class ContactView(BaseView):
     template_name = "contact.html"
 
+    def post(self, request, *args, **kwargs):
+        fields = ['username', 'useremail', 'userphone', 'usermsg']
+        params = {f:request.POST[f] for f in fields}
+        msg = Msg.objects.create(**params)
+
+        response = HttpResponse(status=302)
+        response['Location'] = reverse('main-thankyoumsg')
+        return response
+
 
 class DeliveryView(BaseView):
     template_name = "delivery.html"
@@ -88,6 +101,19 @@ class LoginView(BaseView):
 
 class FormView(BaseView):
     template_name = "form_zakaz.html"
+
+    def post(self, request, *args, **kwargs):
+        fields = ['firstname', 'lastname', 'tel', 'place', 'cart']
+        params = {f:request.POST[f] for f in fields}
+        zakaz = Zakaz.objects.create(**params)
+
+        response = HttpResponse(status=302)
+        response['Location'] = reverse('main-thankyou')
+
+        max_age = 0  #one week
+        expires = datetime.datetime.strftime(datetime.datetime.utcnow() + datetime.timedelta(seconds=max_age), "%a, %d-%b-%Y %H:%M:%S GMT")
+        response.set_cookie(CART_COOKIE, "{}", max_age=max_age, expires=expires)
+        return response
 
 
 class PictureView(View):
@@ -109,7 +135,6 @@ class CartAddRedirectView(RedirectView):
     query_string = True
     pattern_name = 'main-cart-add'
 
-
     def get(self, request, pk, *args, **kwargs):
         good = get_object_or_404(Good, pk=pk)
         response = super(CartAddRedirectView, self).get(request, *args, **kwargs)
@@ -128,4 +153,15 @@ class CartAddRedirectView(RedirectView):
         return response
 
     def get_redirect_url(self, url, *args, **kwargs):
+        kwargs=copy(kwargs)
+        if 'url_pk' in kwargs:
+            kwargs['pk'] = kwargs.pop('url_pk')
         return reverse(url, kwargs=kwargs)
+
+
+class ThankyouView(BaseView):
+    template_name = "thankyou.html"
+
+
+class ThankyoumsgView(BaseView):
+    template_name = "thankyoumsg.html"
