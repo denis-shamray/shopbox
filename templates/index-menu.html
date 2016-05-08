@@ -1,6 +1,7 @@
 <div class="menu">
     <ul>
-        <li{% if url_name == "main-index" %} class="active"{% endif %}><a href="{% url 'main-index' %}">Каталог</a></li>
+        <li{% if url_name == "main-index" %} class="active"{% endif %}><a href="{% url 'main-index' %}">Каталог товаров</a></li>
+		<li{% if url_name == "main-portrait" %} class="active"{% endif %}><a href="{% url 'main-portrait' %}">Рисунки под заказ</a></li>
 <!--         <li{% if url_name == "main-about" %} class="active"{% endif %}><a href="{% url 'main-about' %}">Про нас</a></li> -->
         <li{% if url_name == "main-delivery" %} class="active"{% endif %}><a href="{% url 'main-delivery' %}">Доставка и оплата</a></li>
         <li{% if url_name == "main-contact" %} class="active"{% endif %}><a href="{% url 'main-contact' %}">Контакты</a></li>

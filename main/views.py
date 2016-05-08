@@ -165,3 +165,7 @@ class ThankyouView(BaseView):
 
 class ThankyoumsgView(BaseView):
     template_name = "thankyoumsg.html"
+
+
+class PortraitView(BaseView):
+    template_name = "portrait.html"

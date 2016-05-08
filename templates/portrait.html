@@ -7,15 +7,16 @@
 {% endblock %}
 
 {% block main %}
- <div class="main">
+<div class="main">
     <div class="content">
     	<div class="section group">
-				<div class="col span_2_of_3">
-				  <div class="contact-form">
-			            <h2>Ваши предложения и вопросы</h2>
-					    <form method="post">
+				<div class="col span_1_of_3">
+				    <div class="contact-form">
+			            {% csrf_token %}
+                        <h2 class="cent">Заказать рисунок</h2>
+					    <form enctype="multipart/form-data" method="post">
 					    {% csrf_token %}
-                                         	<div>
+                            <div>
 						        <span><label>Фамилия Имя:</label></span>
 						    	<span><input name="username" type="text" class="textbox" ></span>
 						    </div>
@@ -28,25 +29,21 @@
 						    	<span><input name="userphone" type="text" class="textbox"></span>
 						    </div>
 						    <div>
-						        <span><label>Ваше письмо:</label></span>
-						    	<span><textarea name="usermsg"> </textarea></span>
+						        <span><label>Загрузите ваш рисунок</label></span>
+								<span><input type="file" name="file"></span>
 						    </div>
-						   <div>
+						    <div>
 						        <span><input type="submit" value="Отправить"  class="myButton"></span>
-						  </div>
+						    </div>
 					    </form>
-				  </div>
+				    </div>
   				</div>
-				<div class="col span_1_of_3">
-      			<div class="company_address">
-				        <h3>Информация магазина:</h3>
-				        <p>Украина, Киев</p>
-				        <p>Телефон:+38(000)000-00-01</p>
-				        <p>Email: <span>info@mycompany.com</span></p>
-				   </div>
-				 </div>
-			  </div>		
-         </div> 
-    </div>
+				<div class="col span_2_of_3">
+				    <h2>Примеры работ</h2>
+					<span></span>
+				</div>
+		</div>		
+    </div> 
+</div>
 {% endblock %}
 
