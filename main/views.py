@@ -17,7 +17,7 @@ from main.models import Category
 from main.models import Zakaz
 from main.models import Msg
 from main.models import Ico
-#from main.models import Sms
+from main.models import Sms
 
 CART_COOKIE = 'SB-Cart'
 
@@ -29,7 +29,7 @@ class BaseView(TemplateView):
         cookie_cart = self.request.COOKIES.get(CART_COOKIE)
         cookie_cart = json.loads(cookie_cart) if cookie_cart else {}
 
-	cart = {'items': [], 'summ': 0}
+        cart = {'items': [], 'summ': 0}
         prices = {}
         for pk, count in cookie_cart.items():
             good = Good.objects.get(pk=pk)
@@ -186,9 +186,24 @@ class PortraitView(BaseView):
         return context
 
     def post(self, request, *args, **kwargs):
-        fields = ['username', 'useremail', 'userphone', 'userplace', 'userfile']
+        fields = ['username', 'useremail', 'userphone', 'userplace']
         params = {f:request.POST[f] for f in fields}
+
         sms = Sms.objects.create(**params)
+        if 'userfile' in request.FILES:
+            userfile = request.FILES['userfile']
+
+            #TODO: save file here --->
+            filename = userfile.name
+            content_type = userfile.content_type
+            content = userfile.read()
+            #FIXME: --->
+#            sms.userfile.name = filename
+#            sms.userfile = content
+#            sms.save()
+            #FIXME: <---
+            #???
+            #TODO: <--- save file here
 
         response = HttpResponse(status=302)
         response['Location'] = reverse('main-thankyoumsg')

@@ -87,15 +87,15 @@ class Msg(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-#class Sms(models.Model):
-#    username = models.CharField(max_length=255)
-#    useremail = models.CharField(max_length=255)
-#    userphone = models.CharField(max_length=255)
-#    userplace = models.CharField(max_lenght=255)
-#    state =  models.CharField(max_length=255, default="new")
-#    userfile = models.TextField()
-#    created_at = models.DateTimeField(auto_now_add=True)
-#    updated_at = models.DateTimeField(auto_now=True)
+class Sms(models.Model):
+    username = models.CharField(max_length=255)
+    useremail = models.CharField(max_length=255)
+    userphone = models.CharField(max_length=255)
+    userplace = models.CharField(max_length=255)
+    state =  models.CharField(max_length=255, default="new")
+    userfile = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class IcoImage(models.Model):
