@@ -135,3 +135,11 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_FILE_STORAGE = 'db_file_storage.storage.DatabaseFileStorage'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+#EMAIL_HOST_USER = 'my gmail account'
+#EMAIL_HOST_PASSWORD = 'my gmail account password'
+
+from settings_local import *

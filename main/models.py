@@ -85,3 +85,42 @@ class Msg(models.Model):
     state =  models.CharField(max_length=255, default="new")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+#class Sms(models.Model):
+#    username = models.CharField(max_length=255)
+#    useremail = models.CharField(max_length=255)
+#    userphone = models.CharField(max_length=255)
+#    userplace = models.CharField(max_lenght=255)
+#    state =  models.CharField(max_length=255, default="new")
+#    userfile = models.TextField()
+#    created_at = models.DateTimeField(auto_now_add=True)
+#    updated_at = models.DateTimeField(auto_now=True)
+
+
+class IcoImage(models.Model):
+    bytes = models.TextField()
+    filename = models.CharField(max_length=255)
+    mimetype = models.CharField(max_length=50)
+
+
+class Ico(models.Model):
+    image = models.ImageField(upload_to='main.IcoImage/bytes/filename/mimetype', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    @property
+    def url(self):
+        return reverse('main-ico', kwargs={'pk':self.pk})
+
+    @property
+    def preview(self):
+        return format_html('<a href="{}" target="_blank"><img src="{}" width="160px"></a>', self.url, self.url)
+
+    def __unicode__(self):
+        return self.url
+
+    class Meta:
+        ordering = ['pk']
+
+

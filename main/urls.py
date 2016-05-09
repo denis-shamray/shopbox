@@ -26,6 +26,9 @@ from main.views import CartAddRedirectView
 from main.views import FormView
 from main.views import ThankyouView
 from main.views import ThankyoumsgView
+from main.views import PortraitView
+from main.views import IcoView
+from main.views import ThankyouicoView
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='main-index'),
@@ -41,6 +44,9 @@ urlpatterns = [
     url(r'^category/(?P<category_pk>[0-9]+)$', IndexView.as_view(), name='main-category'),
     url(r'^thankyou$', ThankyouView.as_view(), name='main-thankyou'),
     url(r'^thankyoumsg$', ThankyoumsgView.as_view(), name='main-thankyoumsg'),
+    url(r'^thankyouico$', ThankyouicoView.as_view(), name='main-thankyouico'),
+    url(r'^portrait$', PortraitView.as_view(), name='main-portrait'),
+    url(r'^ico/(?P<pk>[0-9]+)$', IcoView.as_view(), name='main-ico'),
 
     url(r'^files/', include('db_file_storage.urls')),
 ]

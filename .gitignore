@@ -1,3 +1,4 @@
 *.pyc
 #db.sqlite3
 .vagrant
+settings_local.py

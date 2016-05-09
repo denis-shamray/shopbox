@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% include "index-menu.html" %}
+
+{% block header_slide %}
+{% endblock %}
+
+{% block main %}
+ <div class="main">
+    <div class="content">
+    	<div class="section group">
+				<div class="col span_1_of_3">
+				    <div class="contact-form">
+			            <h2>Заказать рисунок:</h2>
+					    <form method="post" enctype="multipart/form-data">
+					    {% csrf_token %}
+                                                    <div>
+						        <span><label>Фамилия Имя:</label></span>
+						    	<span><input name="username" type="text" class="textbox" placeholder="Иванов Иван"></span>
+						    </div>
+						    <div>
+						        <span><label>E-mail:</label></span>
+						    	<span><input name="useremail" type="text" class="textbox" placeholder="ivanov@i.ua"></span>
+						    </div>
+						    <div>
+						        <span><label>Ваш контактный номер телефона:</label></span>
+						    	<span><input name="userphone" type="text" class="textbox" placeholder="+30000000001"></span>
+						    </div>
+							<div>
+						        <span><label>Адрес доставки:</label></span>
+						    	<span><input name="userplace" type="text" class="textbox" placeholder="Киев, отдиление Новой Почты №1"></span>
+						    </div>
+						    <div>
+						        <span><label>Ваше изображение:</label></span>
+						    	<span><input type="file" name="userfile"></span>
+						    </div>
+						    <div>
+						        <span><input type="submit" value="Отправить"  class="myButton"></span>
+								<div></div>
+						    </div>
+					    </form>
+				    </div>
+  				</div>
+				<div class="col span_2_of_3">
+				    <h2>Примеры готовых работ:</h2>
+					{% for ico in icos %}
+					<div class="grid_1_of_5 images_1_of_4">
+					<img class="img" src="{% url 'main-ico' ico.pk %}" alt="" />
+					</div>
+					{% endfor %}
+				</div>
+			</div>		
+         </div> 
+    </div>
+{% endblock %}
+

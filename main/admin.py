@@ -4,6 +4,7 @@ from main.models import Picture
 from main.models import Category
 from main.models import Zakaz
 from main.models import Msg
+from main.models import Ico
 
 class GoodAdmin(admin.ModelAdmin):
    fieldsets = (
@@ -19,6 +20,13 @@ class PictureAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Picture, PictureAdmin)
+
+
+class IcoAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'preview', 'created_at', 'updated_at')
+
+
+admin.site.register(Ico, IcoAdmin)
 
 
 class CategoryAdmin(admin.ModelAdmin):

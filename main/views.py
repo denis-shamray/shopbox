@@ -4,6 +4,8 @@ import json
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 from django.views.generic import View
+from django.conf import settings
+from django.core.mail import send_mail
 from django.core.urlresolvers import resolve
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
@@ -14,6 +16,8 @@ from main.models import Picture
 from main.models import Category
 from main.models import Zakaz
 from main.models import Msg
+from main.models import Ico
+#from main.models import Sms
 
 CART_COOKIE = 'SB-Cart'
 
@@ -107,6 +111,9 @@ class FormView(BaseView):
         params = {f:request.POST[f] for f in fields}
         zakaz = Zakaz.objects.create(**params)
 
+        message = "hello world"
+        send_mail("test message", message, 'test.from@example.com', ['shopboxua@gmail.com'], settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD) 
+
         response = HttpResponse(status=302)
         response['Location'] = reverse('main-thankyou')
 
@@ -165,3 +172,31 @@ class ThankyouView(BaseView):
 
 class ThankyoumsgView(BaseView):
     template_name = "thankyoumsg.html"
+
+
+class ThankyouicoView(BaseView):
+    template_name = "thankyouico.html"
+
+class PortraitView(BaseView):
+    template_name = "portrait.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(PortraitView, self).get_context_data(**kwargs)
+        context['icos'] = Ico.objects.all()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        fields = ['username', 'useremail', 'userphone', 'userplace', 'userfile']
+        params = {f:request.POST[f] for f in fields}
+        sms = Sms.objects.create(**params)
+
+        response = HttpResponse(status=302)
+        response['Location'] = reverse('main-thankyoumsg')
+        return response
+
+
+class IcoView(View):
+    def get(self, request, pk, *args, **kwargs):
+        ico = Ico.objects.get(pk=pk)
+        image_file = ico.image.file
+        return HttpResponse(image_file.read(), image_file.mimetype)
