@@ -17,7 +17,7 @@ from main.models import Category
 from main.models import Zakaz
 from main.models import Msg
 from main.models import Ico
-from main.models import Sms
+from main.models import Sms, SmsImage
 
 CART_COOKIE = 'SB-Cart'
 
@@ -192,18 +192,8 @@ class PortraitView(BaseView):
         sms = Sms.objects.create(**params)
         if 'userfile' in request.FILES:
             userfile = request.FILES['userfile']
-
-            #TODO: save file here --->
-            filename = userfile.name
-            content_type = userfile.content_type
-            content = userfile.read()
-            #FIXME: --->
-#            sms.userfile.name = filename
-#            sms.userfile = content
-#            sms.save()
-            #FIXME: <---
-            #???
-            #TODO: <--- save file here
+            sms.userfile.save(name=userfile.name, content=userfile, save=False)
+            sms.save()
 
         response = HttpResponse(status=302)
         response['Location'] = reverse('main-thankyoumsg')

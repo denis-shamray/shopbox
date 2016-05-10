@@ -87,13 +87,19 @@ class Msg(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
+class SmsImage(models.Model):
+    bytes = models.TextField()
+    filename = models.CharField(max_length=255)
+    mimetype = models.CharField(max_length=50)
+
+
 class Sms(models.Model):
     username = models.CharField(max_length=255)
     useremail = models.CharField(max_length=255)
     userphone = models.CharField(max_length=255)
     userplace = models.CharField(max_length=255)
     state =  models.CharField(max_length=255, default="new")
-    userfile = models.TextField()
+    userfile = models.ImageField(upload_to='main.SmsImage/bytes/filename/mimetype', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
