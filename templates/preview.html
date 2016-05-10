@@ -46,7 +46,7 @@
                                 <div id="products_example">
                                     <div id="products">
                                         <div class="slides_container">
-                                            {% for picture in good.pictures.all %}<a href="#!" target="_blank"><img src="{% url 'main-picture' picture.pk %}" alt=" " /></a> {% endfor %}
+                                            {% for picture in good.pictures.all %}<a href="#!" target="_blank"><img src="{% url 'main-picture' picture.pk %}" alt=" " class="images_1_of_4 transition-scale1" /></a> {% endfor %}
                                         </div>
                                         <ul class="pagination">
                                             {% for picture in good.pictures.all %}<li><a href="#!"><img class="razmer" src="{% url 'main-picture' picture.pk %}" alt=" " /></a></li> {% endfor %}
