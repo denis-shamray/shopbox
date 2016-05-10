@@ -5,6 +5,7 @@ from main.models import Category
 from main.models import Zakaz
 from main.models import Msg
 from main.models import Ico
+from main.models import Sms
 
 class GoodAdmin(admin.ModelAdmin):
    fieldsets = (
@@ -42,10 +43,17 @@ class ZakazAdmin(admin.ModelAdmin):
 
 admin.site.register(Zakaz, ZakazAdmin)
 
-
+                                                                       
 class MsgAdmin(admin.ModelAdmin):
     list_display = ('username', 'useremail', 'userphone', 'usermsg', 'state', 'created_at', 'updated_at')
 
 
 admin.site.register(Msg, MsgAdmin)
+
+
+class SmsAdmin(admin.ModelAdmin):
+    list_display = ('username', 'useremail', 'userphone', 'userplace', 'state', 'userfile', 'created_at', 'updated_at')
+
+
+admin.site.register(Sms, SmsAdmin)
 # Register your models here.
