@@ -10,7 +10,7 @@ from main.models import Sms
 class GoodAdmin(admin.ModelAdmin):
    fieldsets = (
       (None, {
-         'fields': ('title', 'short', 'price', 'options_text', 'details', 'category')
+         'fields': ('title', 'short', 'price', 'details', 'category')
       }),
    )
 admin.site.register(Good, GoodAdmin)

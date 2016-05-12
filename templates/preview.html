@@ -46,7 +46,7 @@
                                 <div id="products_example">
                                     <div id="products">
                                         <div class="slides_container">
-                                            {% for picture in good.pictures.all %}<a href='javascript:someFunction()' onclick="return falsetarget="_blank"><img src="{% url 'main-picture' picture.pk %}" alt=" " class="images_1_of_4 transition-scale1" /></a> {% endfor %}
+                                            {% for picture in good.pictures.all %}<a href='javascript:someFunction()' onclick="return falsetarget="_blank"><img src="{% url 'main-picture' picture.pk %}" alt=" " class="images_1_of_4" /></a> {% endfor %}
                                         </div>
                                         <ul class="pagination">
                                             {% for picture in good.pictures.all %}<li><a href="#!"><img class="razmer" src="{% url 'main-picture' picture.pk %}" alt=" " /></a></li> {% endfor %}
@@ -61,24 +61,7 @@
                             <div class="price">
                                 <p>Цена: <span>{{good.price}} грн</span></p>
                             </div>
-                            {% if good.get_options %}
-                            <div class="available">
-                                <p>Доступные варианты :</p>
-							
-                                <ul>
-                                    {% for name, option in good.get_options.items %}
-                                    <li>
-                                        {{name}}:
-                                        <select>
-                                            {% for item in option %}
-                                            <option>{{item}}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                            {% endif %}
+                            
                             <div class="share-desc">
                                 <!-- <div class="share">
                                     <p>Share Product :</p>
