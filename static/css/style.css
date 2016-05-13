@@ -382,8 +382,7 @@ body {
 }
 
 .images_1_of_4  img {
-    width: 150px;
-	height: 170px;
+       	height: 60%;
 	max-width: 100%;
 }
 .images_1_of_4  h2 {
@@ -1781,11 +1780,6 @@ table{
 	vertical-align: bottom;
 }
 
-.img{
-    width: 260px;
-	height: 280px;
-}
-
 .transition-scale {
   position: relative;
   z-index: 2;
@@ -1836,8 +1830,7 @@ table{
 }
 
 .images_1_of_44  img {
-    width: 150px;
-	height: 170px;
+	height: 44%;
 	max-width: 100%;
 }
 .images_1_of_44  h2 {
