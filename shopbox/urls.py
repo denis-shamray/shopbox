@@ -17,9 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 import main.urls
 
+admin.autodiscover()
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^', include('main.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+
 #    url(r'^files/', include('db_file_storage.urls')),  #DISABLED because filenames are not needed here
 ]
 
