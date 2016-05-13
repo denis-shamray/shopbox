@@ -36,6 +36,7 @@
 	   text-transform:uppercase;
  }
  .slide h1 span{
+    *margin: 0px 0px 0px -25px;
  	font-size:2em;
  }
  .slide h2{ 
