@@ -27,11 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STATIC_ROOT =  os.path.join(BASE_DIR, 'static_src')
+
 
 # Application definition
 
 LOCAL_APPS = [
-    'main'
+    'main',
+    'django-console',
 ]
 
 INSTALLED_APPS = [
@@ -141,5 +144,12 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 #EMAIL_HOST_USER = 'my gmail account'
 #EMAIL_HOST_PASSWORD = 'my gmail account password'
+
+
+SECURE_CONSOLE = True
+CONSOLE_WHITELIST = None
+#CONSOLE_WHITELIST = [
+#	'127.0.0.1'
+#]
 
 from settings_local import *
