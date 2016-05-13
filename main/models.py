@@ -16,7 +16,6 @@ class Good(models.Model):
     title = models.CharField(max_length=255)
     short = models.TextField()
     price = models.DecimalField(max_digits=9, decimal_places=2)
-    options_text = models.TextField()
     details = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

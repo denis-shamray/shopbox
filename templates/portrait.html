@@ -41,14 +41,22 @@
 						    </div>
 					    </form>
 				    </div>
+					<div><br>
+					<h3>Цены на портреты:</h3>
+					<span class="redzag">А4</span> одна персона - <span class="red">90</span> грн, <br>&nbsp &nbsp &nbsp &nbsp две персоны - <span class="red">140</span> грн <br><br>
+                    <span class="redzag">А3</span> одна персона - <span class="red">140</span> грн, <br>&nbsp &nbsp &nbsp &nbsp две персоны - <span class="red">200</span> грн
+					</div><br><br>
+					<div>
+					<h3>Цены на рисунки:</h3>
+					</div>
   				</div>
 				<div class="col span_2_of_3">
 				    <h2>Примеры готовых работ:</h2>
 					{% for ico in icos %}
-					<div class="grid_1_of_5 images_1_of_4">
-					<img class="img" src="{% url 'main-ico' ico.pk %}" alt="" />
+					<div class="grid_1_of_5 images_1_of_5 transition-scale">
+					<img class="img" src="{% url 'main-ico' ico.pk %}" alt=""/>
 					</div>
-					{% endfor %}
+                    {% endfor %}
 				</div>
 			</div>		
          </div> 

@@ -196,7 +196,7 @@ class PortraitView(BaseView):
             sms.save()
 
         response = HttpResponse(status=302)
-        response['Location'] = reverse('main-thankyoumsg')
+        response['Location'] = reverse('main-thankyouico')
         return response
 
 
