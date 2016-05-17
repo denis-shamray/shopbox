@@ -6,6 +6,7 @@ from main.models import Zakaz
 from main.models import Msg
 from main.models import Ico
 from main.models import Sms
+from main.models import Variable
 
 class GoodAdmin(admin.ModelAdmin):
    fieldsets = (
@@ -56,4 +57,11 @@ class SmsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Sms, SmsAdmin)
+
+
+class VariableAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description', 'value')
+
+
+admin.site.register(Variable, VariableAdmin)
 # Register your models here.

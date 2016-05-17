@@ -129,3 +129,7 @@ class Ico(models.Model):
         ordering = ['pk']
 
 
+class Variable(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    value = models.CharField(max_length=255)

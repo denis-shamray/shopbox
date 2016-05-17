@@ -18,6 +18,7 @@ from main.models import Zakaz
 from main.models import Msg
 from main.models import Ico
 from main.models import Sms, SmsImage
+from main.models import Variable
 
 CART_COOKIE = 'SB-Cart'
 
@@ -57,12 +58,20 @@ class IndexView(BaseView):
     template_name = "index.html"
 
     def get_context_data(self, category_pk=None, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
+        context = super(IndexView, self).get_context_data(**kwargs) 
         if category_pk:
             category_pk = int(category_pk)
             context['goods'] = Good.objects.filter(category__pk=category_pk)
         return context
 
+    def get(self, request, *args, **kwargs):
+        try:
+            index_counter = Variable.objects.get(name='index_counter')
+        except Variable.DoesNotExist as error:
+            index_counter = Variable(name='index_counter', value="0", description="Views counter for an index page")
+        index_counter.value = str(int(index_counter.value)+1)
+        index_counter.save()
+        return super(IndexView, self).get(request, *args, **kwargs)
 
 class PreviewView(BaseView):
     template_name = "preview.html"
