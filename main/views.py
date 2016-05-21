@@ -121,7 +121,7 @@ class FormView(BaseView):
         zakaz = Zakaz.objects.create(**params)
 
         message = "hello world"
-        send_mail("test message", message, 'shopboxua@gmail.com', ['shopboxua@gmail.com'], settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD) 
+        send_mail("test message", message, 'shopboxua@gmail.com', ['shopboxua@gmail.com'], fail_silently=False) 
 
         response = HttpResponse(status=302)
         response['Location'] = reverse('main-thankyou')
