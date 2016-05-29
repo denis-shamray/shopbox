@@ -343,7 +343,7 @@ section {
 
 footer li:hover, li:active, li:focus{
    background: none;
-   height: 18px;   
+   height: 16px;   
    z-index:100;
    border: 0;   
 }
