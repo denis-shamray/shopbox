@@ -312,7 +312,7 @@ article .item3_4{
 
 .zagl{
    color: rgba(169, 112, 8, 0.79);
-   font-size: 24px;
+   font-size: 20px;
    padding-bottom: 7px;
 }
 
@@ -354,7 +354,7 @@ footer a:hover{
 
 footer li{
 	padding-bottom: 2px;
-	font-size: 16px
+	font-size: 14px
 }
 
 /* слaйдер */
