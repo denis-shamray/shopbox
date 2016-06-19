@@ -1,10 +1,13 @@
 <div class="menu">
-    <ul>
+<input type="checkbox" id="menu-checkbox" />
+    <nav role="navigation"><!-- навигация -->
+      <label for="menu-checkbox" class="toggle-button" data-open="Меню" data-close="Close" onclick></label>
+        <ul class="main-menu">
         <li{% if url_name == "main-index" %} class="active"{% endif %}><a href="{% url 'main-index' %}">Каталог товаров</a></li>
         <li{% if url_name == "main-portrait" %} class="active"{% endif %}><a href="{% url 'main-portrait' %}">Рисунки на заказ</a></li>
-<!--         <li{% if url_name == "main-about" %} class="active"{% endif %}><a href="{% url 'main-about' %}">Про нас</a></li> -->
         <li{% if url_name == "main-delivery" %} class="active"{% endif %}><a href="{% url 'main-delivery' %}">Доставка и оплата</a></li>
         <li{% if url_name == "main-contact" %} class="active"{% endif %}><a href="{% url 'main-contact' %}">Контакты</a></li>
         <div class="clear"></div>
-    </ul>
+        </ul>
+    </nav>
 </div>

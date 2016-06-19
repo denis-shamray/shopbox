@@ -41,10 +41,87 @@ body {
         box-shadow: 0px 0px 40px black; */
         margin: auto;
         }
+		
+/* Menu  */
+#menu-checkbox {
+  /* чекбокс скрыт */
+  display: none;
+}
+.main-menu {
+  /* пункты меню скрыты */
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+.main-menu li {
+  /* пункты меню расположены вертикально */
+  /* каждый имеет ширину 100% */
+  font-size: 1em;
+  display: block;
+  width: 100%;
+}
+.main-menu a {
+  /* немного стилизуем ссылки */
+  display: block;
+  border-top: 1px solid grey;
+  color: lightslategray;
+  padding: .5em;
+  text-decoration: none;
+}
+.main-menu a:hover {
+  text-decoration: none;
+}
+.toggle-button {
+  text-align: center;
+  display: block;
+  /* не забываем явно указать каким должен быть курсор */
+  cursor: pointer;
+  color: #fff;
+}
+.toggle-button:after {
+  /* получаем данные из атрибута data-open в html */
+  content: attr(data-open);
+  display: block;
+  margin: 10px 0;
+  padding: 10px 30px;
+}
+#menu-checkbox:checked + nav[role="navigation"] .main-menu {
+  /* когда чекбокс активен меню становится видимым */
+  display: block;
+}
+#menu-checkbox:checked + nav[role="navigation"] .toggle-button:after {
+  content: attr(data-open);
+}
+		
+@media screen and (min-width: 800px) {
+    .toggle-button {
+      /* label скрыт */
+      display: none;
+    }
+    .main-menu {
+      display: block;
+      margin: 0 auto;
+    }
+    .main-menu li {
+      /* теги <li> расположены в ряд */
+      width: 190px;
+      text-align: center;
+      display: inline-block;
+    }
+    .main-menu a {
+      display: inline-block;
+      margin-right: -4px;
+      font-size: .8em;
+      text-decoration: none;
+      color: #fff;
+      text-transform: capitalize;
+      border-bottom: 0;
+    }
+}
 
 .wrap {
-        padding: 20px;
-        border-radius: 5px;
+    padding: 20px;
+    border-radius: 5px;
 	width:65%;
 	margin: 0 auto;
 }
@@ -200,11 +277,11 @@ body {
 	display:block;
 	padding:16px 20px;
 	border-right: 2px ridge #585858;
-    -webkit-transition: all .9s;
-   -moz-transition: all .9s;
-   -o-transition: all .9s;
-   -ms-transition: all .9s;
-   transition: all .9s;
+    -webkit-transition: all .3s;
+   -moz-transition: all .3s;
+   -o-transition: all .3s;
+   -ms-transition: all .3s;
+   transition: all .3s;
 }
 .menu li a:hover,.menu li.active a{
 	background:#B81D22;
@@ -275,7 +352,7 @@ body {
     margin:0 20px;
     background:url(../images/drop_arrow.png) no-repeat 0;
     border-bottom: 1px solid #EEE;
-    text-transform:uppercase;	
+    *text-transform:uppercase;	
 }
 .categories li:last-child a{
 	border:none;
