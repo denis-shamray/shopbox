@@ -104,7 +104,7 @@ body {
     }
     .main-menu li {
       /* теги <li> расположены в ряд */
-      width: 190px;
+      width: 179px;
       text-align: center;
       display: inline-block;
     }
