@@ -1569,11 +1569,14 @@ body {
 	
 }
 @media only screen and (max-width: 480px) {
+    .wrapper-dropdown-2 .dropdown{
+	    width: 100%;
+	}
 	.wrap {
 		width: 95%;
 	}
 	.call,.account_desc{
-		float:none;
+		*float:none;
 		text-align:center;
 	}
 	.call{
@@ -1610,7 +1613,7 @@ body {
 		padding-top:0;
 	}
 	.add-cart{
-		float:none;
+		*float:none;
 	}
 	.span_2_of_3 {
 		width:96%;
