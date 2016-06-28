@@ -19,6 +19,7 @@ from main.models import Msg
 from main.models import Ico
 from main.models import Sms, SmsImage
 from main.models import Variable
+                                                 
 
 CART_COOKIE = 'SB-Cart'
 

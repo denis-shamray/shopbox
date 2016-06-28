@@ -1,7 +1,7 @@
 <div class="categories">
     <ul>
         <h3>&nbsp &nbsp Категории</h3>
-        <li><a href="{% url 'main-index' %}">Все товары</a></li>
+        <li><a href="{% url 'main-category' 0 %}">Все товары</a></li>
         {% for category in categories %}
         <li><a href="{% url 'main-category' category.pk %}">{{ category.name }}</a></li>
         {% endfor %}
