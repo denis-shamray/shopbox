@@ -121,7 +121,7 @@ class FormView(BaseView):
         params = {f:request.POST[f] for f in fields}
         zakaz = Zakaz.objects.create(**params)
 
-        message = "hello world"
+        message = "New zakaz!"
         send_mail("test message", message, 'shopboxua@gmail.com', ['shopboxua@gmail.com'], fail_silently=False) 
 
         response = HttpResponse(status=302)
