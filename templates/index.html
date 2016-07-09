@@ -174,7 +174,7 @@
                             <p><span class="rupees">{{good.price}} грн</span></p>
                         </div>
                         <div class="add-cart">
-						    <h4><a href="{% url 'main-cart-add-pk' pk=good.pk url=url_name url_pk=pk %}">Купить</a></h4>
+						    <h4><a href="{% url 'main-cart-add-pk' pk=good.pk url=url_name url_pk=category_pk %}">Купить</a></h4>
                         </div>
                         <div class="clear"></div>
                     </div>

@@ -58,11 +58,12 @@ class BaseView(TemplateView):
 class IndexView(BaseView):
     template_name = "index.html"
 
-    def get_context_data(self, category_pk=None, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs) 
-        if category_pk:
-            category_pk = int(category_pk)
-            context['goods'] = Good.objects.filter(category__pk=category_pk)
+    def get_context_data(self, pk=0, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['category_pk'] = pk 
+        if pk and pk !='0':
+            pk = int(pk)
+            context['goods'] = Good.objects.filter(category__pk=pk)
         return context
 
     def get(self, request, *args, **kwargs):
